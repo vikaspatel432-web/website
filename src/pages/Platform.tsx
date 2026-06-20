@@ -78,6 +78,29 @@ export default function Platform() {
             <BuildingAssembly />
           </Suspense>
         </Reveal>
+
+        {/* Caption + discipline legend */}
+        <Reveal delay={120}>
+          <div className="mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+            <p className="text-sm text-muted max-w-xl leading-relaxed">
+              Structure, architecture and MEP — modelled, sequenced and
+              coordinated on a single model. One source of truth, from
+              foundation to handover.
+            </p>
+            <div className="flex flex-wrap gap-5">
+              {[
+                ['Structural', '#1f4e79'],
+                ['Architectural', '#b08d57'],
+                ['MEP', '#156082'],
+              ].map(([label, color]) => (
+                <span key={label} className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted">
+                  <span className="w-3 h-3 rounded-sm" style={{ background: color }} />
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       {/* Dimensions explorer */}
