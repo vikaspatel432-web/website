@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { Suspense, lazy, useState } from 'react'
 import { Box, Clock, IndianRupee } from 'lucide-react'
 import { PageHero, SectionHeading, CTABand } from '../components/ui'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
 import { PLATFORM_FEATURES } from '../content'
+
+const BuildingAssembly = lazy(() => import('../components/BuildingAssembly'))
 
 const DIMENSIONS = [
   {
@@ -56,6 +58,26 @@ export default function Platform() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      {/* Building assembly — interactive 3D construction sequencing */}
+      <section className="container-x py-16">
+        <SectionHeading
+          eyebrow="Construction sequencing"
+          title="Watch the model come together."
+          intro="An interactive 3D walkthrough of how a building assembles — structure, then architecture, then MEP. Orbit it, switch view modes, or jump between phases."
+        />
+        <Reveal>
+          <Suspense
+            fallback={
+              <div className="w-full h-[560px] sm:h-[640px] rounded-2xl border border-line grid place-items-center text-muted text-sm">
+                Loading 3D model…
+              </div>
+            }
+          >
+            <BuildingAssembly />
+          </Suspense>
+        </Reveal>
       </section>
 
       {/* Dimensions explorer */}
