@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, ArrowUpRight, Boxes, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react'
+import Hero from '../components/Hero'
 import Reveal from '../components/Reveal'
 import Counter from '../components/Counter'
 import Marquee from '../components/Marquee'
@@ -10,84 +11,7 @@ import { SERVICES, STATS, TOOLS, TECH_WE_MASTER } from '../content'
 export default function Home() {
   return (
     <>
-      {/* ---------------- Hero ---------------- */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bp-grid animate-grid-pan opacity-70" />
-        <div
-          className="absolute top-0 right-0 w-[45rem] h-[45rem] rounded-full blur-3xl opacity-25"
-          style={{ background: 'radial-gradient(circle, var(--accent), transparent 60%)' }}
-        />
-        <div className="container-x relative grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left */}
-          <div>
-            <Reveal>
-              <span className="label-mono inline-flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                BIM Consultancy · AEC Construction Technology
-              </span>
-            </Reveal>
-            <Reveal delay={100}>
-              <h1 className="h-display text-5xl md:text-6xl xl:text-7xl mt-5">
-                Transforming visions <br />
-                into <span className="text-gradient">reality.</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="mt-6 text-muted text-lg max-w-xl leading-relaxed">
-                We turn the BIM model into your project’s single source of truth —
-                from multi-discipline modelling and clash detection to 4D/5D
-                simulation, reality capture and live data analytics.
-              </p>
-            </Reveal>
-            <Reveal delay={300}>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link to="/contact" className="btn-primary">
-                  Start a Project <ArrowRight size={18} />
-                </Link>
-                <Link to="/services" className="btn-ghost">
-                  Explore Services
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Right — animated "single source of truth" visual */}
-          <Reveal delay={250} className="relative">
-            <div className="relative card p-6 md:p-8 shadow-2xl shadow-black/10">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-2 text-sm text-muted">
-                  <span className="w-3 h-3 rounded-full bg-accent" />
-                  Live BIM Model
-                </div>
-                <span className="label-mono">SSOT</span>
-              </div>
-              <div className="relative aspect-square rounded-xl bp-grid border border-line flex items-center justify-center overflow-hidden">
-                <Boxes size={120} strokeWidth={0.8} className="text-accent animate-floaty" />
-                {[
-                  { t: 'Clash-free', c: 'top-4 left-4' },
-                  { t: 'RFIs', c: 'top-4 right-4' },
-                  { t: 'Auto BOQ', c: 'bottom-4 left-4' },
-                  { t: '4D · 5D', c: 'bottom-4 right-4' },
-                ].map((chip) => (
-                  <span
-                    key={chip.t}
-                    className={`absolute ${chip.c} glass rounded-full px-3 py-1 text-xs font-medium`}
-                  >
-                    {chip.t}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-6 grid grid-cols-3 gap-3 text-center">
-                {['Architecture', 'Structure', 'MEPF'].map((d) => (
-                  <div key={d} className="rounded-lg border border-line py-2 text-xs text-muted">
-                    {d}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <Hero />
 
       {/* ---------------- Tools marquee ---------------- */}
       <section className="py-8 border-y border-line" style={{ background: 'var(--surface)' }}>

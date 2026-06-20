@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Reveal from './Reveal'
+import FadeIn from './FadeIn'
+import AnimatedHeading from './AnimatedHeading'
 
 /** Eyebrow + heading block for inner-page section intros. */
 export function SectionHeading({
@@ -51,16 +53,19 @@ export function PageHero({
         style={{ background: 'radial-gradient(circle, var(--accent), transparent 60%)' }}
       />
       <div className="container-x relative">
-        <Reveal>
+        <FadeIn delay={80} duration={700}>
           <p className="label-mono mb-4">{eyebrow}</p>
-        </Reveal>
-        <Reveal delay={80}>
-          <h1 className="h-display text-4xl md:text-6xl lg:text-7xl max-w-4xl">{title}</h1>
-        </Reveal>
+        </FadeIn>
+        <AnimatedHeading
+          text={title}
+          as="h1"
+          initialDelay={150}
+          className="h-display text-4xl md:text-6xl lg:text-7xl max-w-4xl"
+        />
         {intro && (
-          <Reveal delay={160}>
+          <FadeIn delay={600} duration={900}>
             <p className="mt-6 text-muted text-lg max-w-2xl leading-relaxed">{intro}</p>
-          </Reveal>
+          </FadeIn>
         )}
       </div>
     </section>

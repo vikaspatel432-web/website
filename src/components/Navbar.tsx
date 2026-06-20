@@ -19,7 +19,7 @@ export default function Navbar() {
   const location = useLocation()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -27,21 +27,27 @@ export default function Navbar() {
 
   useEffect(() => setOpen(false), [location.pathname])
 
+  const onHome = location.pathname === '/'
+  // Over the dark hero video → force white UI; otherwise use themed colours.
+  const overVideo = onHome && !scrolled && !open
+
   return (
     <header className="fixed top-0 inset-x-0 z-50">
-      <div
-        className={`transition-all duration-300 ${
-          scrolled ? 'py-2' : 'py-4'
-        }`}
-      >
+      <div className={`transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'}`}>
         <div className="container-x">
           <nav
             className={`flex items-center justify-between rounded-2xl px-4 py-2.5 transition-all duration-300 ${
-              scrolled ? 'glass shadow-lg shadow-black/5' : ''
+              scrolled || open ? 'glass shadow-lg shadow-black/5' : ''
             }`}
           >
             <Link to="/" className="flex items-center gap-2.5">
-              <img src={logo} alt="SP Consultants" className="logo-img h-9 w-auto" />
+              <img
+                src={logo}
+                alt="SP Consultants"
+                className={`h-9 w-auto transition-[filter] duration-300 ${
+                  overVideo ? '[filter:brightness(0)_invert(1)]' : 'logo-img'
+                }`}
+              />
               <span className="sr-only">SP Consultants</span>
             </Link>
 
@@ -51,8 +57,12 @@ export default function Navbar() {
                   key={l.to}
                   to={l.to}
                   className={({ isActive }) =>
-                    `relative text-sm transition-colors hover:text-accent ${
-                      isActive ? 'text-accent' : 'text-muted'
+                    `relative text-sm transition-colors ${
+                      overVideo
+                        ? 'text-white/80 hover:text-white'
+                        : isActive
+                        ? 'text-accent'
+                        : 'text-muted hover:text-accent'
                     }`
                   }
                 >
@@ -66,18 +76,23 @@ export default function Navbar() {
                 type="button"
                 onClick={toggle}
                 aria-label="Toggle theme"
-                className="p-2 rounded-full text-muted hover:text-accent transition-colors"
+                className={`p-2 rounded-full transition-colors ${
+                  overVideo ? 'text-white/80 hover:text-white' : 'text-muted hover:text-accent'
+                }`}
               >
                 {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
               </button>
-              <Link to="/contact" className="btn-primary hidden sm:inline-flex !px-5 !py-2 text-sm">
+              <Link
+                to="/contact"
+                className="hidden sm:inline-flex items-center rounded-full bg-white text-black px-5 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5"
+              >
                 Get in Touch
               </Link>
               <button
                 type="button"
                 aria-label="Menu"
                 onClick={() => setOpen((v) => !v)}
-                className="md:hidden p-2 text-ink"
+                className={`md:hidden p-2 ${overVideo ? 'text-white' : 'text-ink'}`}
               >
                 {open ? <X size={22} /> : <Menu size={22} />}
               </button>
@@ -99,7 +114,10 @@ export default function Navbar() {
                   {l.label}
                 </NavLink>
               ))}
-              <Link to="/contact" className="btn-primary mt-2 text-sm">
+              <Link
+                to="/contact"
+                className="mt-2 inline-flex items-center justify-center rounded-full bg-white text-black px-5 py-2.5 text-sm font-medium"
+              >
                 Get in Touch
               </Link>
             </div>
