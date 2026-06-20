@@ -1,92 +1,112 @@
-import {
-  ScanLine,
-  Ruler,
-  Box,
-  Building2,
-  MonitorPlay,
-  Layers,
-} from 'lucide-react'
-import FadeIn from '../components/FadeIn'
-import { PageHeader, Card, CTASection, PAGE_X } from '../components/ui'
-
-const services = [
-  {
-    icon: ScanLine,
-    title: '360° Laser Scanning',
-    text: 'High-density interior and exterior scanning of existing structures. Using the Leica RTC360, we capture full sites quickly and contactlessly — ideal for occupied buildings, heritage assets and live construction.',
-    points: ['Interior & exterior capture', 'Survey-grade accuracy', 'Minimal site disruption'],
-  },
-  {
-    icon: Ruler,
-    title: '2D CAD Layouts',
-    text: 'Accurate 2D CAD drawings of existing structures generated directly from scan data — floor plans, elevations and sections that reflect true as-built conditions, not outdated records.',
-    points: ['Plans, elevations & sections', 'As-built accuracy', 'CAD-ready deliverables'],
-  },
-  {
-    icon: Box,
-    title: '3D Point Cloud Generation',
-    text: 'Registered and colourised point clouds that serve as a complete, measurable digital twin of the physical space — a single source of truth for design, coordination and verification.',
-    points: ['Registered & colourised', 'Measurable digital record', 'Standard exchange formats'],
-  },
-  {
-    icon: Building2,
-    title: 'Point Cloud to BIM',
-    text: 'Intelligent, parametric BIM models built from point cloud data to your required Level of Detail. Perfect for renovation, retrofit, facilities management and clash-free coordination.',
-    points: ['Parametric BIM models', 'Defined Level of Detail (LOD)', 'Discipline-ready'],
-  },
-  {
-    icon: MonitorPlay,
-    title: 'Cloud BIM Viewer',
-    text: 'A browser-based platform to access your models anywhere. Measure, section, explode and filter geometry, raise issues against objects, add markups and save shareable views — no CAD licence required.',
-    points: ['Measure, section & filter', 'Issue tracking & markups', 'Shareable saved views'],
-  },
-  {
-    icon: Layers,
-    title: 'Specialist Capture',
-    text: 'Stadiums, hotels, roads and pathways, industrial and heritage sites — wherever access is complex or accuracy is critical, we tailor the capture and modelling workflow to suit.',
-    points: ['Large & complex sites', 'Infrastructure & interiors', 'Tailored workflows'],
-  },
-]
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, Check } from 'lucide-react'
+import { PageHero, CTABand } from '../components/ui'
+import Reveal from '../components/Reveal'
+import Icon from '../components/Icon'
+import { SERVICES } from '../content'
 
 export default function Services() {
+  const [active, setActive] = useState(SERVICES[0].id)
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+    SERVICES.forEach((s) => {
+      const el = document.getElementById(s.id)
+      if (!el) return
+      const io = new IntersectionObserver(
+        ([e]) => e.isIntersecting && setActive(s.id),
+        { rootMargin: '-45% 0px -50% 0px' },
+      )
+      io.observe(el)
+      observers.push(io)
+    })
+    // jump to hash on load
+    if (window.location.hash) {
+      const id = window.location.hash.slice(1)
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 300)
+    }
+    return () => observers.forEach((o) => o.disconnect())
+  }, [])
+
   return (
     <>
-      <PageHeader
+      <PageHero
         eyebrow="Services"
-        title="Capture, model and deliver — with precision."
-        intro="A complete reality-capture pipeline, from the first scan on site to an intelligent BIM model your whole team can work from in the cloud."
+        title="An integrated AEC technology stack."
+        intro="Seven service lines that connect around a single BIM model — pick the entry point that fits your project, or combine them end to end."
       />
 
-      <section className={`${PAGE_X} py-20`}>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((s, i) => (
-            <FadeIn key={s.title} delay={120 + i * 100} duration={700}>
-              <Card>
-                <s.icon size={28} className="mb-5" strokeWidth={1.5} />
-                <h3 className="text-xl font-medium mb-3">{s.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed mb-5">
-                  {s.text}
-                </p>
-                <ul className="space-y-2">
-                  {s.points.map((p) => (
-                    <li
-                      key={p}
-                      className="text-sm text-gray-300 flex items-center gap-2"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-white/60" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </FadeIn>
-          ))}
+      <section className="container-x py-16">
+        <div className="grid lg:grid-cols-[260px_1fr] gap-12">
+          {/* Sticky index */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-28 space-y-1">
+              <p className="label-mono mb-4">All services</p>
+              {SERVICES.map((s) => (
+                <a
+                  key={s.id}
+                  href={`#${s.id}`}
+                  className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
+                    active === s.id
+                      ? 'text-accent'
+                      : 'text-muted hover:text-ink'
+                  }`}
+                  style={active === s.id ? { background: 'var(--surface)' } : undefined}
+                >
+                  <span className="label-mono opacity-60">{s.num}</span>
+                  {s.title}
+                </a>
+              ))}
+            </div>
+          </aside>
+
+          {/* Sections */}
+          <div className="space-y-20">
+            {SERVICES.map((s) => (
+              <section key={s.id} id={s.id} className="scroll-mt-28">
+                <Reveal>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-2xl grid place-items-center text-accent shrink-0" style={{ background: 'var(--surface-2)' }}>
+                      <Icon name={s.icon as never} size={28} strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <span className="label-mono opacity-60">{s.num} / 07</span>
+                      <h2 className="h-display text-2xl md:text-3xl">{s.title}</h2>
+                    </div>
+                  </div>
+                </Reveal>
+                <Reveal delay={80}>
+                  <p className="text-muted text-lg leading-relaxed max-w-2xl">{s.desc}</p>
+                </Reveal>
+                <Reveal delay={160}>
+                  <div className="mt-7 grid sm:grid-cols-2 gap-3">
+                    {s.points.map((p) => (
+                      <div
+                        key={p}
+                        className="card flex items-center gap-3 px-4 py-3.5 text-sm hover:border-accent transition-colors"
+                      >
+                        <Check size={18} className="text-accent shrink-0" />
+                        {p}
+                      </div>
+                    ))}
+                  </div>
+                </Reveal>
+              </section>
+            ))}
+
+            <Reveal>
+              <Link to="/platform" className="btn-ghost">
+                See how it all connects on the platform <ArrowRight size={17} />
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      <CTASection
-        title="Not sure what you need?"
-        subtitle="Send us your drawings or a description of the site. We'll recommend the right level of scanning and BIM detail for your goals and budget."
+      <CTABand
+        title="Not sure where to start?"
+        subtitle="Share your drawings or project scope and we’ll recommend the right combination of services."
       />
     </>
   )

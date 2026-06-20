@@ -1,95 +1,81 @@
-import { Target, ShieldCheck, Zap, Users } from 'lucide-react'
-import FadeIn from '../components/FadeIn'
-import { PageHeader, Card, SectionHeading, CTASection, PAGE_X } from '../components/ui'
+import { Target, Users, Eye, Workflow } from 'lucide-react'
+import { PageHero, SectionHeading, CTABand } from '../components/ui'
+import Reveal from '../components/Reveal'
+import { FOUNDERS } from '../content'
 
 const values = [
-  { icon: Target, title: 'Precision first', text: 'Survey-grade accuracy is the foundation of everything we deliver.' },
-  { icon: ShieldCheck, title: 'Dependable', text: 'Clear deliverables, honest timelines and data you can trust.' },
-  { icon: Zap, title: 'Efficient', text: 'Fast on-site capture that minimises disruption to your operations.' },
-  { icon: Users, title: 'Collaborative', text: 'Cloud-first delivery that keeps your whole team on the same model.' },
-]
-
-const founders = [
-  {
-    name: 'Yogiraj Surti',
-    role: 'Co-Founder & Strategic Director',
-    email: 'yogiraj@spconsultants.info',
-  },
-  {
-    name: 'Vikas Patel',
-    role: 'Co-Founder & Technical Director',
-    email: 'vikas@spconsultants.info',
-  },
+  { icon: Eye, title: 'Single source of truth', text: 'One current model that brings everyone onto the same page.' },
+  { icon: Workflow, title: 'From files to flow', text: 'Dynamic, real-time collaboration over static deliverables.' },
+  { icon: Users, title: 'Inclusive participation', text: 'Every stakeholder contributes directly in the model environment.' },
+  { icon: Target, title: 'Predictable outcomes', text: 'Better-informed decisions across the whole project lifecycle.' },
 ]
 
 export default function About() {
   return (
     <>
-      <PageHeader
+      <PageHero
         eyebrow="About"
-        title="Transforming visions into reality."
-        intro="SP Consultants is a reality-capture and Scan-to-BIM practice. We give architects, engineers, builders and owners a precise digital record of the built world — so better decisions get made, faster."
+        title="We don’t just deliver models."
+        intro="SP Consultants is a BIM consultancy and AEC construction-technology firm. We create an environment where the model becomes the central point of communication for all stakeholders."
       />
 
-      {/* Mission */}
-      <section className={`${PAGE_X} py-20 border-b border-white/10`}>
-        <div className="max-w-3xl mx-auto text-center">
-          <FadeIn delay={100} duration={800}>
-            <p className="text-xl md:text-2xl font-light leading-relaxed text-gray-200">
-              Too many projects still rely on outdated drawings and guesswork
-              about existing conditions. We replace that uncertainty with
-              accurate, measurable digital models — captured on site and
-              delivered to your team in the cloud.
+      <section className="container-x py-20">
+        <Reveal>
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="h-display text-2xl md:text-3xl leading-snug">
+              “Beyond delivery: transforming the BIM model into the central
+              nervous system of your project.”
             </p>
-          </FadeIn>
-        </div>
+            <p className="mt-5 text-muted leading-relaxed">
+              By positioning the model as the core information hub, we enable
+              seamless data flow between all project participants — creating an
+              integrated environment where your BIM investment delivers maximum
+              value throughout the project lifecycle.
+            </p>
+          </div>
+        </Reveal>
       </section>
 
-      {/* Values */}
-      <section className={`${PAGE_X} py-24 border-b border-white/10`}>
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading eyebrow="What we value" title="How we work." />
+      <section className="relative py-24 overflow-hidden" style={{ background: 'var(--surface)' }}>
+        <div className="absolute inset-0 bp-grid opacity-50" />
+        <div className="container-x relative">
+          <SectionHeading eyebrow="What we believe" title="How we work." />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map((v, i) => (
-              <FadeIn key={v.title} delay={120 + i * 100} duration={700}>
-                <Card>
-                  <v.icon size={26} className="mb-4" strokeWidth={1.5} />
-                  <h3 className="text-lg font-medium mb-2">{v.title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">{v.text}</p>
-                </Card>
-              </FadeIn>
+              <Reveal key={v.title} delay={i * 90}>
+                <div className="card p-7 h-full hover:-translate-y-1 hover:border-accent transition-all">
+                  <v.icon size={26} className="text-accent mb-4" strokeWidth={1.5} />
+                  <h3 className="font-display font-semibold mb-2">{v.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{v.text}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className={`${PAGE_X} py-24`}>
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading eyebrow="Leadership" title="The people behind SP Consultants." />
-          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl">
-            {founders.map((f, i) => (
-              <FadeIn key={f.name} delay={120 + i * 120} duration={750}>
-                <Card>
-                  <div className="w-14 h-14 rounded-full liquid-glass border border-white/20 flex items-center justify-center text-xl font-light mb-5">
-                    {f.name.split(' ').map((n) => n[0]).join('')}
-                  </div>
-                  <h3 className="text-xl font-medium">{f.name}</h3>
-                  <p className="text-sm text-gray-400 mb-4">{f.role}</p>
-                  <a
-                    href={`mailto:${f.email}`}
-                    className="text-sm text-gray-300 hover:text-white transition-colors"
-                  >
-                    {f.email}
-                  </a>
-                </Card>
-              </FadeIn>
-            ))}
-          </div>
+      <section className="container-x py-24">
+        <SectionHeading eyebrow="Leadership" title="The people behind SP Consultants." />
+        <div className="grid sm:grid-cols-2 gap-6 max-w-3xl">
+          {FOUNDERS.map((f, i) => (
+            <Reveal key={f.name} delay={i * 120}>
+              <div className="card p-8 hover:border-accent transition-colors">
+                <div className="w-16 h-16 rounded-2xl grid place-items-center font-display text-2xl font-bold text-accent mb-5" style={{ background: 'var(--surface-2)' }}>
+                  {f.name.split(' ').map((n) => n[0]).join('')}
+                </div>
+                <h3 className="font-display text-xl font-semibold">{f.name}</h3>
+                <p className="text-sm text-muted mb-4">{f.role}</p>
+                <div className="space-y-1 text-sm">
+                  <a href={`mailto:${f.email}`} className="block text-muted hover:text-accent transition-colors">{f.email}</a>
+                  <a href={`tel:${f.phone.replace(/\s/g, '')}`} className="block text-muted hover:text-accent transition-colors">{f.phone}</a>
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
-      <CTASection />
+      <CTABand />
     </>
   )
 }

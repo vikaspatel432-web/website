@@ -1,99 +1,73 @@
-import FadeIn from '../components/FadeIn'
-import { PageHeader, Card, SectionHeading, CTASection, PAGE_X } from '../components/ui'
-
-const projects = [
-  {
-    sector: 'Sports & Venues',
-    title: 'Stadium Reality Capture',
-    text: 'Full 360° laser scanning of a large stadium structure, producing a registered 3D point cloud and BIM model of complex seating, structural and roof geometry.',
-    tags: ['Laser Scanning', '3D Point Cloud', 'Scan-to-BIM'],
-  },
-  {
-    sector: 'Hospitality',
-    title: 'Lemon Tree Hotel, Surat',
-    text: 'As-built capture and modelling of hotel interiors and structure, giving the design and operations team an accurate digital record to plan refurbishment and fit-out.',
-    tags: ['Interior Scanning', 'BIM Model', 'BIM Viewer'],
-  },
-  {
-    sector: 'Interiors',
-    title: 'Empire Interiors, UK',
-    text: 'Detailed interior scanning and 2D CAD generation for an international interiors project, delivering precise existing-condition layouts for design coordination.',
-    tags: ['Interior Scanning', '2D CAD', 'Point Cloud'],
-  },
-  {
-    sector: 'Infrastructure',
-    title: 'Road & Pathway Survey',
-    text: 'Capture of road and pathway corridors as colourised point clouds, supporting accurate measurement, design verification and as-built documentation.',
-    tags: ['Exterior Scanning', '3D Point Cloud', 'Survey'],
-  },
-]
+import { PageHero, SectionHeading, CTABand } from '../components/ui'
+import Reveal from '../components/Reveal'
+import { PROJECTS } from '../content'
 
 const sectors = [
   'Hospitality & Hotels',
   'Sports Venues & Stadiums',
+  'Commercial & Mixed-use',
+  'Residential',
+  'Infrastructure',
   'Interiors & Fit-out',
-  'Roads & Infrastructure',
-  'Heritage & Existing Buildings',
-  'Industrial & Commercial',
 ]
 
 export default function Projects() {
   return (
     <>
-      <PageHeader
+      <PageHero
         eyebrow="Projects"
-        title="Trusted on complex sites, across sectors."
-        intro="From stadiums and hotels to interiors and infrastructure, we deliver dependable reality-capture and BIM outcomes on projects across the UK and India."
+        title="Proven on complex, real-world builds."
+        intro="From stadiums and hotels to integrated BIM delivery and programme control, our work spans sectors and scales across the AEC industry."
       />
 
-      <section className={`${PAGE_X} py-20 border-b border-white/10`}>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-          {projects.map((p, i) => (
-            <FadeIn key={p.title} delay={120 + i * 110} duration={750}>
-              <Card>
-                <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-3">
-                  {p.sector}
-                </p>
-                <h3 className="text-2xl font-normal mb-3" style={{ letterSpacing: '-0.02em' }}>
-                  {p.title}
-                </h3>
-                <p className="text-sm text-gray-400 leading-relaxed mb-6">
-                  {p.text}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs text-gray-300 border border-white/15 rounded-full px-3 py-1"
-                    >
-                      {t}
-                    </span>
-                  ))}
+      <section className="container-x py-16">
+        <div className="grid md:grid-cols-2 gap-6">
+          {PROJECTS.map((p, i) => (
+            <Reveal key={p.title} delay={(i % 2) * 100}>
+              <article className="card group overflow-hidden h-full hover:-translate-y-1.5 hover:border-accent transition-all">
+                <div className="relative h-44 bp-grid border-b border-line overflow-hidden">
+                  <div
+                    className="absolute inset-0 opacity-30 transition-transform duration-700 group-hover:scale-110"
+                    style={{ background: 'radial-gradient(circle at 30% 30%, var(--accent), transparent 60%)' }}
+                  />
+                  <span className="absolute top-4 left-4 label-mono">{p.sector}</span>
                 </div>
-              </Card>
-            </FadeIn>
+                <div className="p-7">
+                  <h3 className="h-display text-2xl mb-2">{p.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed mb-5">{p.text}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="rounded-full border border-line px-3 py-1 text-xs text-muted">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className={`${PAGE_X} py-24`}>
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading eyebrow="Sectors we serve" title="Wherever accuracy matters." />
+      <section className="relative py-24 overflow-hidden" style={{ background: 'var(--surface)' }}>
+        <div className="absolute inset-0 bp-grid opacity-50" />
+        <div className="container-x relative">
+          <SectionHeading eyebrow="Sectors we serve" title="Wherever the model matters." />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {sectors.map((s, i) => (
-              <FadeIn key={s} delay={100 + i * 70} duration={600}>
-                <div className="liquid-glass border border-white/10 rounded-xl px-6 py-5 text-gray-200">
+              <Reveal key={s} delay={(i % 3) * 80}>
+                <div className="card px-6 py-5 hover:border-accent hover:text-accent transition-colors">
                   {s}
                 </div>
-              </FadeIn>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <CTASection
+      <CTABand
         title="Have a project in mind?"
-        subtitle="Whatever the sector or scale, we'll help you capture it accurately and deliver it in a format your team can use."
+        subtitle="Whatever the sector or scale, we’ll help you deliver it on a connected BIM model."
       />
     </>
   )
