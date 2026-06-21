@@ -44,7 +44,7 @@ export default function Navbar() {
               <img
                 src={logo}
                 alt="SP Consultants"
-                className={`h-9 w-auto transition-[filter] duration-300 ${
+                className={`h-12 md:h-14 w-auto transition-[filter] duration-300 ${
                   overVideo ? '[filter:brightness(0)_invert(1)]' : 'logo-img'
                 }`}
               />

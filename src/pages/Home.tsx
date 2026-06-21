@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import Reveal from '../components/Reveal'
 import Counter from '../components/Counter'
 import Marquee from '../components/Marquee'
+import ToolLogo from '../components/ToolLogo'
 import Icon from '../components/Icon'
 import { SectionHeading, CTABand } from '../components/ui'
 import { SERVICES, STATS, TOOLS, TECH_WE_MASTER } from '../content'
@@ -17,9 +18,7 @@ export default function Home() {
       <section className="py-8 border-y border-line" style={{ background: 'var(--surface)' }}>
         <Marquee>
           {TOOLS.map((t) => (
-            <span key={t} className="font-display text-xl md:text-2xl text-muted/70 whitespace-nowrap">
-              {t}
-            </span>
+            <ToolLogo key={t.name} name={t.name} file={t.file} />
           ))}
         </Marquee>
       </section>

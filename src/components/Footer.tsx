@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container-x py-16">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
-            <img src={logo} alt="SP Consultants" className="logo-img h-12 w-auto mb-5" />
+            <img src={logo} alt="SP Consultants" className="logo-img h-20 w-auto mb-5" />
             <p className="text-muted max-w-sm leading-relaxed">
               BIM consultancy and AEC construction technology. We make the BIM
               model the single source of truth — from design to delivery.

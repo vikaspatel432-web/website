@@ -59,7 +59,7 @@ export default function Hero() {
 
             <AnimatedHeading
               text={'Transforming visions\ninto reality.'}
-              className="h-display text-white text-5xl md:text-6xl lg:text-7xl xl:text-8xl mt-5 mb-5"
+              className="h-display text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-4 mb-4"
             />
 
             <FadeIn delay={800} duration={1000}>
@@ -99,14 +99,6 @@ export default function Hero() {
             </FadeIn>
           </div>
         </div>
-
-        {/* scroll cue */}
-        <FadeIn delay={1800} duration={1000}>
-          <div className="mt-10 flex items-center gap-3 text-white/50 text-xs uppercase tracking-[0.25em]">
-            <span className="block w-10 h-px bg-white/40" />
-            Scroll to explore
-          </div>
-        </FadeIn>
       </div>
     </section>
   )

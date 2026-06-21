@@ -144,16 +144,26 @@ export const STATS = [
   { value: 100, suffix: '%', label: 'Single source of truth' },
 ]
 
-export const TOOLS = [
-  'Autodesk Revit',
-  'Navisworks',
-  'Primavera P6',
-  'MS Project',
-  'Power BI',
-  'Tableau',
-  'Leica RTC360',
-  'Speckle',
-  'AutoCAD',
+// Tools/software we work with. `file` points at an optional logo asset in
+// /public/logos/. If the file is missing, the strip falls back to the name —
+// drop the official logos into public/logos/ to light them up automatically.
+export const TOOLS: { name: string; file: string }[] = [
+  { name: 'Revit', file: '/logos/revit.svg' },
+  { name: 'Navisworks', file: '/logos/navisworks.svg' },
+  { name: 'Civil 3D', file: '/logos/civil3d.svg' },
+  { name: 'Tekla', file: '/logos/tekla.svg' },
+  { name: 'Solibri', file: '/logos/solibri.svg' },
+  { name: 'Synchro', file: '/logos/synchro.svg' },
+  { name: 'Matterport', file: '/logos/matterport.svg' },
+  { name: 'DroneDeploy', file: '/logos/dronedeploy.svg' },
+  { name: 'MS Project', file: '/logos/ms-project.svg' },
+  { name: 'SketchUp', file: '/logos/sketchup.svg' },
+  { name: 'Speckle', file: '/logos/speckle.svg' },
+  { name: 'Power BI', file: '/logos/power-bi.svg' },
+  { name: 'Tableau', file: '/logos/tableau.svg' },
+  { name: 'OpenSpace', file: '/logos/openspace.svg' },
+  { name: 'PIX4D', file: '/logos/pix4d.svg' },
+  { name: 'Primavera P6', file: '/logos/primavera.svg' },
 ]
 
 export const TECH_WE_MASTER = [
