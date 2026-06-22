@@ -194,3 +194,29 @@ body {
     transform: none;
   }
 }
+
+/* ---- Services hero (Explore Service) animation keyframes ---- */
+@keyframes draw2d { to { stroke-dashoffset: 0; } }
+@keyframes scanSweep {
+  0% { transform: translate(-50%, -50%) translateY(150px); }
+  100% { transform: translate(-50%, -50%) translateY(-150px); }
+}
+@keyframes curA {
+  0% { transform: translate(120px, 120px); }
+  25% { transform: translate(420px, 80px); }
+  55% { transform: translate(320px, 320px); }
+  80% { transform: translate(560px, 200px); }
+  100% { transform: translate(120px, 120px); }
+}
+@keyframes curB {
+  0% { transform: translate(640px, 360px); }
+  30% { transform: translate(460px, 150px); }
+  60% { transform: translate(720px, 110px); }
+  100% { transform: translate(640px, 360px); }
+}
+@keyframes curC {
+  0% { transform: translate(520px, 70px); }
+  35% { transform: translate(260px, 240px); }
+  70% { transform: translate(640px, 300px); }
+  100% { transform: translate(520px, 70px); }
+}

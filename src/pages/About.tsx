@@ -1,7 +1,44 @@
-import { Target, Users, Eye, Workflow } from 'lucide-react'
+import { useState } from 'react'
+import { Mail, Phone, Target, Users, Eye, Workflow } from 'lucide-react'
 import { PageHero, SectionHeading, CTABand } from '../components/ui'
 import Reveal from '../components/Reveal'
 import { FOUNDERS } from '../content'
+
+function FounderCard({ f }: { f: (typeof FOUNDERS)[number] }) {
+  const [imgOk, setImgOk] = useState(true)
+  const initials = f.name.split(' ').map((n) => n[0]).join('')
+  return (
+    <div className="card p-6 sm:p-8 hover:border-accent transition-colors flex flex-col sm:flex-row gap-7 items-center sm:items-start">
+      <div className="shrink-0">
+        {imgOk && f.photo ? (
+          <img
+            src={f.photo}
+            alt={f.name}
+            onError={() => setImgOk(false)}
+            className="w-40 h-48 object-cover object-top rounded-2xl border border-line"
+          />
+        ) : (
+          <div className="w-40 h-48 rounded-2xl grid place-items-center font-display text-4xl font-bold text-accent border border-line" style={{ background: 'var(--surface-2)' }}>
+            {initials}
+          </div>
+        )}
+      </div>
+      <div className="text-center sm:text-left">
+        <h3 className="font-display text-2xl font-semibold">{f.name}</h3>
+        <p className="text-sm text-accent mb-4">{f.role}</p>
+        {f.bio && <p className="text-sm text-muted leading-relaxed mb-5 max-w-md">{f.bio}</p>}
+        <div className="space-y-2 text-sm">
+          <a href={`mailto:${f.email}`} className="flex items-center gap-2 justify-center sm:justify-start text-muted hover:text-accent transition-colors">
+            <Mail size={15} /> {f.email}
+          </a>
+          <a href={`tel:${f.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 justify-center sm:justify-start text-muted hover:text-accent transition-colors">
+            <Phone size={15} /> {f.phone}
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const values = [
   { icon: Eye, title: 'Single source of truth', text: 'One current model that brings everyone onto the same page.' },
@@ -56,20 +93,10 @@ export default function About() {
 
       <section className="container-x py-24">
         <SectionHeading eyebrow="Leadership" title="The people behind SP Consultants." />
-        <div className="grid sm:grid-cols-2 gap-6 max-w-3xl">
-          {FOUNDERS.map((f, i) => (
-            <Reveal key={f.name} delay={i * 120}>
-              <div className="card p-8 hover:border-accent transition-colors">
-                <div className="w-16 h-16 rounded-2xl grid place-items-center font-display text-2xl font-bold text-accent mb-5" style={{ background: 'var(--surface-2)' }}>
-                  {f.name.split(' ').map((n) => n[0]).join('')}
-                </div>
-                <h3 className="font-display text-xl font-semibold">{f.name}</h3>
-                <p className="text-sm text-muted mb-4">{f.role}</p>
-                <div className="space-y-1 text-sm">
-                  <a href={`mailto:${f.email}`} className="block text-muted hover:text-accent transition-colors">{f.email}</a>
-                  <a href={`tel:${f.phone.replace(/\s/g, '')}`} className="block text-muted hover:text-accent transition-colors">{f.phone}</a>
-                </div>
-              </div>
+        <div className="max-w-2xl">
+          {FOUNDERS.map((f) => (
+            <Reveal key={f.name}>
+              <FounderCard f={f} />
             </Reveal>
           ))}
         </div>

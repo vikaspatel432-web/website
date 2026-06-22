@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check } from 'lucide-react'
-import { PageHero, CTABand } from '../components/ui'
+import { CTABand } from '../components/ui'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
+import ServicesHero from '../components/ServicesHero'
 import { SERVICES } from '../content'
 
 export default function Services() {
@@ -31,11 +32,21 @@ export default function Services() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Services"
-        title="An integrated AEC technology stack."
-        intro="Seven service lines that connect around a single BIM model — pick the entry point that fits your project, or combine them end to end."
-      />
+      {/* Full-wide interactive hero animation */}
+      <ServicesHero />
+
+      <section className="container-x pt-16 pb-4">
+        <Reveal>
+          <p className="label-mono mb-3">Services</p>
+          <h1 className="h-display text-3xl md:text-5xl max-w-3xl">
+            An integrated AEC technology stack.
+          </h1>
+          <p className="mt-5 text-muted text-lg max-w-2xl leading-relaxed">
+            Seven service lines that connect around a single BIM model — pick the
+            entry point that fits your project, or combine them end to end.
+          </p>
+        </Reveal>
+      </section>
 
       <section className="container-x py-16">
         <div className="grid lg:grid-cols-[260px_1fr] gap-12">

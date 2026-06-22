@@ -6,7 +6,7 @@ export const COMPANY = {
   tagline: 'Transforming Visions Into Reality',
   site: 'www.spconsultants.info',
   email: 'admin@spconsultants.info',
-  phones: ['+91 99134 62740', '+91 94285 10353'],
+  phones: ['+91 94285 10353'],
 }
 
 export const FOUNDERS = [
@@ -15,12 +15,8 @@ export const FOUNDERS = [
     role: 'Co-Founder & Strategic Director',
     email: 'yogiraj@spconsultants.info',
     phone: '+91 94285 10353',
-  },
-  {
-    name: 'Vikas Patel',
-    role: 'Co-Founder & Technical Director',
-    email: 'vikas@spconsultants.info',
-    phone: '+91 99134 62740',
+    photo: '/team/yogiraj.jpg',
+    bio: 'Yogiraj leads strategy and client partnerships at SP Consultants, helping AEC teams adopt BIM as the single source of truth across design, coordination and construction.',
   },
 ]
 
