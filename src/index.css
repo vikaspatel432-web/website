@@ -220,3 +220,14 @@ body {
   70% { transform: translate(640px, 300px); }
   100% { transform: translate(520px, 70px); }
 }
+
+/* ---- SP logo intro / preloader ---- */
+@keyframes sp-pop {
+  0% { opacity: 0; transform: scale(0.35); }
+  70% { opacity: 1; transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes sp-rise {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
