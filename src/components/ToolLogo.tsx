@@ -10,7 +10,7 @@ export default function ToolLogo({ name, file }: { name: string; file: string })
 
   if (failed) {
     return (
-      <span className="text-xl md:text-2xl font-medium text-muted/70 whitespace-nowrap">
+      <span className="text-xl md:text-2xl font-medium whitespace-nowrap" style={{ color: '#5a6b75' }}>
         {name}
       </span>
     )
@@ -22,7 +22,7 @@ export default function ToolLogo({ name, file }: { name: string; file: string })
       alt={name}
       loading="lazy"
       onError={() => setFailed(true)}
-      className="h-8 md:h-9 w-auto object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+      className="h-9 md:h-11 w-auto object-contain opacity-90 transition-all duration-300 hover:opacity-100 hover:scale-105"
     />
   )
 }

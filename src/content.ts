@@ -144,22 +144,22 @@ export const STATS = [
 // /public/logos/. If the file is missing, the strip falls back to the name —
 // drop the official logos into public/logos/ to light them up automatically.
 export const TOOLS: { name: string; file: string }[] = [
-  { name: 'Revit', file: '/logos/revit.svg' },
-  { name: 'Navisworks', file: '/logos/navisworks.svg' },
-  { name: 'Civil 3D', file: '/logos/civil3d.svg' },
-  { name: 'Tekla', file: '/logos/tekla.svg' },
-  { name: 'Solibri', file: '/logos/solibri.svg' },
-  { name: 'Synchro', file: '/logos/synchro.svg' },
-  { name: 'Matterport', file: '/logos/matterport.svg' },
-  { name: 'DroneDeploy', file: '/logos/dronedeploy.svg' },
-  { name: 'MS Project', file: '/logos/ms-project.svg' },
-  { name: 'SketchUp', file: '/logos/sketchup.svg' },
-  { name: 'Speckle', file: '/logos/speckle.svg' },
-  { name: 'Power BI', file: '/logos/power-bi.svg' },
-  { name: 'Tableau', file: '/logos/tableau.svg' },
-  { name: 'OpenSpace', file: '/logos/openspace.svg' },
-  { name: 'PIX4D', file: '/logos/pix4d.svg' },
-  { name: 'Primavera P6', file: '/logos/primavera.svg' },
+  { name: 'Revit', file: '/logos/revit.png' },
+  { name: 'Navisworks', file: '/logos/navisworks.png' },
+  { name: 'Civil 3D', file: '/logos/civil3d.png' },
+  { name: 'Tekla', file: '/logos/tekla.png' },
+  { name: 'Solibri', file: '/logos/solibri.png' },
+  { name: 'Synchro', file: '/logos/synchro.png' },
+  { name: 'Matterport', file: '/logos/matterport.png' },
+  { name: 'DroneDeploy', file: '/logos/dronedeploy.png' },
+  { name: 'MS Project', file: '/logos/ms-project.png' },
+  { name: 'SketchUp', file: '/logos/sketchup.png' },
+  { name: 'Speckle', file: '/logos/speckle.png' },
+  { name: 'Power BI', file: '/logos/power-bi.png' },
+  { name: 'Tableau', file: '/logos/tableau.png' },
+  { name: 'OpenSpace', file: '/logos/openspace.png' },
+  { name: 'PIX4D', file: '/logos/pix4d.png' },
+  { name: 'Primavera P6', file: '/logos/primavera.png' },
 ]
 
 export const TECH_WE_MASTER = [

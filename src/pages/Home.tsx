@@ -14,9 +14,9 @@ export default function Home() {
     <>
       <Hero />
 
-      {/* ---------------- Tools marquee ---------------- */}
-      <section className="py-10 border-y border-line" style={{ background: 'var(--surface)' }}>
-        <p className="label-mono text-center mb-7">
+      {/* ---------------- Tools marquee (fixed light logo wall) ---------------- */}
+      <section className="py-10 border-y" style={{ background: '#f4f7f9', borderColor: '#e2e8ee' }}>
+        <p className="text-center mb-7 text-xs font-medium uppercase tracking-[0.25em]" style={{ color: '#156082' }}>
           Our Technology Stack — the tools we build with
         </p>
         <Marquee>
