@@ -15,7 +15,10 @@ export default function Home() {
       <Hero />
 
       {/* ---------------- Tools marquee ---------------- */}
-      <section className="py-8 border-y border-line" style={{ background: 'var(--surface)' }}>
+      <section className="py-10 border-y border-line" style={{ background: 'var(--surface)' }}>
+        <p className="label-mono text-center mb-7">
+          Our Technology Stack — the tools we build with
+        </p>
         <Marquee>
           {TOOLS.map((t) => (
             <ToolLogo key={t.name} name={t.name} file={t.file} />
