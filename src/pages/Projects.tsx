@@ -25,12 +25,15 @@ export default function Projects() {
           {PROJECTS.map((p, i) => (
             <Reveal key={p.title} delay={(i % 2) * 100}>
               <article className="card group overflow-hidden h-full hover:-translate-y-1.5 hover:border-accent transition-all">
-                <div className="relative h-44 bp-grid border-b border-line overflow-hidden">
-                  <div
-                    className="absolute inset-0 opacity-30 transition-transform duration-700 group-hover:scale-110"
-                    style={{ background: 'radial-gradient(circle at 30% 30%, var(--accent), transparent 60%)' }}
+                <div className="relative h-52 border-b border-line overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <span className="absolute top-4 left-4 label-mono">{p.sector}</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+                  <span className="absolute top-4 left-4 label-mono text-white/90">{p.sector}</span>
                 </div>
                 <div className="p-7">
                   <h3 className="h-display text-2xl mb-2">{p.title}</h3>

@@ -177,24 +177,28 @@ export const PROJECTS = [
     title: 'Stadium Documentation',
     text: 'Large-scale laser scanning and point-cloud generation for stadium infrastructure, with BIM models at accurate measurements.',
     tags: ['Laser Scanning', 'Point Cloud', 'Scan-to-BIM'],
+    image: '/projects/stadium.webp',
   },
   {
     sector: 'Hospitality',
     title: 'Hotel Interiors — Scan to 2D',
     text: 'High-overlap interior scanning across floors, converted into precise, verified 2D floor layouts for planning and design.',
     tags: ['Interior Scanning', '2D Layouts', 'BIM'],
+    image: '/projects/scan-2d.webp',
   },
   {
     sector: 'Commercial',
     title: 'Integrated BIM Delivery',
     text: 'Multi-discipline BIM with live clash detection, automated BOQs and GFC drawings delivered through an online collaboration platform.',
     tags: ['BIM Consultancy', 'Clash Detection', 'BOQ'],
+    image: '/projects/integrated-bim.webp',
   },
   {
     sector: 'Infrastructure',
     title: '4D / 5D Programme Control',
     text: 'Schedule linked to the model for 4D sequencing and 5D cost control, with dashboards for real-time progress monitoring.',
     tags: ['4D/5D', 'Primavera P6', 'Dashboards'],
+    image: '/projects/4d-5d.webp',
   },
 ]
 

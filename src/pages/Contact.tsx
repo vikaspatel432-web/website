@@ -110,11 +110,11 @@ export default function Contact() {
                   </p>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <Field label="Name" name="name" required />
-                    <Field label="Company" name="company" />
+                    <Field label="Company" name="company" required />
                   </div>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <Field label="Email" name="email" type="email" required />
-                    <Field label="Phone" name="phone" />
+                    <Field label="Phone" name="phone" type="tel" required />
                   </div>
                   <div>
                     <label className="block text-sm text-muted mb-2">Service of interest</label>
