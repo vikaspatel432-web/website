@@ -1,3 +1,5 @@
+import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { PageHero, SectionHeading, CTABand } from '../components/ui'
 import Reveal from '../components/Reveal'
 import { PROJECTS } from '../content'
@@ -31,7 +33,7 @@ export default function Projects() {
         <div className="grid md:grid-cols-2 gap-6">
           {PROJECTS.map((p, i) => (
             <Reveal key={p.title} delay={(i % 2) * 100}>
-              <article className="card group overflow-hidden h-full hover:-translate-y-1.5 hover:border-accent transition-all">
+              <Link to={`/projects/${p.slug}`} viewTransition className="card group block overflow-hidden h-full hover:-translate-y-1.5 hover:border-accent transition-all">
                 <div className="relative h-52 border-b border-line overflow-hidden">
                   <img
                     src={p.image}
@@ -52,8 +54,11 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-all group-hover:gap-3">
+                    View case study <ArrowRight size={15} />
+                  </span>
                 </div>
-              </article>
+              </Link>
             </Reveal>
           ))}
         </div>
