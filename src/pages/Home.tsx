@@ -5,6 +5,7 @@ import Reveal from '../components/Reveal'
 import Counter from '../components/Counter'
 import Marquee from '../components/Marquee'
 import BeforeAfter from '../components/BeforeAfter'
+import ScrollSequence from '../components/ScrollSequence'
 import ToolLogo from '../components/ToolLogo'
 import Icon from '../components/Icon'
 import { SectionHeading, CTABand } from '../components/ui'
@@ -132,6 +133,9 @@ export default function Home() {
           })}
         </div>
       </section>
+
+      {/* ---------------- 4D scroll-scrubbed sequence ---------------- */}
+      <ScrollSequence />
 
       {/* ---------------- From Files to Flow ---------------- */}
       <section className="relative py-24 overflow-hidden" style={{ background: 'var(--surface)' }}>
