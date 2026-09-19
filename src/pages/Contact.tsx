@@ -3,6 +3,7 @@ import { Mail, Phone, Globe, MapPin, Send } from 'lucide-react'
 import { PageHero } from '../components/ui'
 import Reveal from '../components/Reveal'
 import { COMPANY, FOUNDERS, SERVICES } from '../content'
+import useSEO from '../useSEO'
 
 const encode = (data: Record<string, string>) =>
   Object.keys(data)
@@ -10,6 +11,12 @@ const encode = (data: Record<string, string>) =>
     .join('&')
 
 export default function Contact() {
+  useSEO({
+    title: 'Contact — Start a Project | SP Consultants',
+    description: 'Talk to SP Consultants about BIM modelling, laser scanning, scan-to-BIM, 4D/5D simulation or dashboards. Serving projects across India and abroad.',
+    path: '/contact',
+  })
+
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

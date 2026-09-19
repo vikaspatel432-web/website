@@ -173,32 +173,72 @@ export const TECH_WE_MASTER = [
 
 export const PROJECTS = [
   {
+    slug: 'stadium-documentation',
     sector: 'Sports & Venues',
     title: 'Stadium Documentation',
     text: 'Large-scale laser scanning and point-cloud generation for stadium infrastructure, with BIM models at accurate measurements.',
     tags: ['Laser Scanning', 'Point Cloud', 'Scan-to-BIM'],
     image: '/projects/stadium.webp',
+    challenge:
+      'Large sports venues are rarely built exactly as drawn, and legacy documentation is often incomplete or decades out of date. Any refurbishment, expansion or compliance work needs a reliable record of what is actually there.',
+    approach: [
+      'Survey planning — scan positions set out to cover bowl, concourse and back-of-house with sufficient overlap',
+      'Survey-grade laser scanning across the venue',
+      'Registration and cleaning of the captured scans into a single coordinated point cloud',
+      'Scan-to-BIM modelling of structure and key architectural elements to the agreed level of detail',
+    ],
+    deliverables: ['Registered point cloud', 'Coordinated Revit model', 'Measured dimensional drawings', 'Federated model ready for coordination'],
   },
   {
+    slug: 'hotel-interiors-scan-to-2d',
     sector: 'Hospitality',
     title: 'Hotel Interiors — Scan to 2D',
     text: 'High-overlap interior scanning across floors, converted into precise, verified 2D floor layouts for planning and design.',
     tags: ['Interior Scanning', '2D Layouts', 'BIM'],
     image: '/projects/scan-2d.webp',
+    challenge:
+      'Occupied hotels need accurate floor layouts before any refurbishment can be planned, but measuring room by room is slow, disruptive to guests and prone to compounding errors.',
+    approach: [
+      'High-overlap interior scanning across all floors, room by room',
+      'Registration of scans into a single coordinated dataset',
+      'Extraction of wall lines, openings and levels from the point cloud',
+      'Production of verified 2D floor layouts, checked back against the survey',
+    ],
+    deliverables: ['Registered interior point cloud', 'Verified 2D floor plans', 'Room and area schedules', 'Survey data for design and fit-out teams'],
   },
   {
+    slug: 'integrated-bim-delivery',
     sector: 'Commercial',
     title: 'Integrated BIM Delivery',
     text: 'Multi-discipline BIM with live clash detection, automated BOQs and GFC drawings delivered through an online collaboration platform.',
     tags: ['BIM Consultancy', 'Clash Detection', 'BOQ'],
     image: '/projects/integrated-bim.webp',
+    challenge:
+      'When architecture, structure and MEP are modelled in isolation, clashes surface on site where they are most expensive to resolve — and quantities drift away from the design intent.',
+    approach: [
+      'Multi-discipline modelling to an agreed BIM execution plan',
+      'Federation of discipline models with repeating clash detection cycles',
+      'Issue tracking and coordination reviews with the design team',
+      'Automated quantity take-off and GFC drawing production from the model',
+    ],
+    deliverables: ['Federated multi-discipline model', 'Clash detection and coordination reports', 'Automated BOQs', 'GFC drawing set', 'Online collaboration platform access'],
   },
   {
+    slug: '4d-5d-programme-control',
     sector: 'Infrastructure',
     title: '4D / 5D Programme Control',
     text: 'Schedule linked to the model for 4D sequencing and 5D cost control, with dashboards for real-time progress monitoring.',
     tags: ['4D/5D', 'Primavera P6', 'Dashboards'],
     image: '/projects/4d-5d.webp',
+    challenge:
+      'A bar-chart programme shows when work is planned, but not whether the sequence is physically buildable, where trades will collide, or what the project costs at any given moment.',
+    approach: [
+      'Linking programme activities to model elements to build the 4D sequence',
+      'Reviewing the sequence for buildability, access and clashes in time',
+      'Attaching cost data to produce the 5D cost-loaded model',
+      'Publishing progress dashboards for the project team',
+    ],
+    deliverables: ['4D construction sequence', '5D cost-loaded model', 'Buildability review findings', 'Live progress dashboards'],
   },
 ]
 

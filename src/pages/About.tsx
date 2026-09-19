@@ -3,6 +3,7 @@ import { Mail, Phone, Target, Users, Eye, Workflow } from 'lucide-react'
 import { PageHero, SectionHeading, CTABand } from '../components/ui'
 import Reveal from '../components/Reveal'
 import { FOUNDERS } from '../content'
+import useSEO from '../useSEO'
 
 function FounderCard({ f }: { f: (typeof FOUNDERS)[number] }) {
   const [imgOk, setImgOk] = useState(true)
@@ -48,6 +49,12 @@ const values = [
 ]
 
 export default function About() {
+  useSEO({
+    title: 'About — Who We Are | SP Consultants',
+    description: 'An independent BIM consultancy turning ambitious construction ideas into measurable outcomes, from strategy through execution.',
+    path: '/about',
+  })
+
   return (
     <>
       <PageHero

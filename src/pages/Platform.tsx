@@ -4,6 +4,7 @@ import { PageHero, SectionHeading, CTABand } from '../components/ui'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
 import { PLATFORM_FEATURES } from '../content'
+import useSEO from '../useSEO'
 
 const BuildingAssembly = lazy(() => import('../components/BuildingAssembly'))
 
@@ -32,6 +33,12 @@ const DIMENSIONS = [
 ]
 
 export default function Platform() {
+  useSEO({
+    title: 'Platform — A Connected BIM Data Backbone | SP Consultants',
+    description: 'One connected model as the single source of truth: federated BIM, live clash detection, automated BOQs and dashboards that keep every discipline aligned.',
+    path: '/platform',
+  })
+
   const [dim, setDim] = useState(0)
   const active = DIMENSIONS[dim]
 
