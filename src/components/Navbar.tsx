@@ -40,7 +40,7 @@ export default function Navbar() {
               scrolled || open ? 'glass shadow-lg shadow-black/5' : ''
             }`}
           >
-            <Link to="/" className="flex items-center gap-2.5">
+            <Link to="/" viewTransition className="flex items-center gap-2.5">
               <img
                 src={logo}
                 alt="SP Consultants"
@@ -56,6 +56,7 @@ export default function Navbar() {
                 <NavLink
                   key={l.to}
                   to={l.to}
+                  viewTransition
                   className={({ isActive }) =>
                     `relative text-sm transition-colors ${
                       overVideo
@@ -105,6 +106,7 @@ export default function Navbar() {
                 <NavLink
                   key={l.to}
                   to={l.to}
+                  viewTransition
                   className={({ isActive }) =>
                     `py-2.5 px-2 rounded-lg transition-colors ${
                       isActive ? 'text-accent' : 'text-ink hover:text-accent'

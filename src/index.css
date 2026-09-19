@@ -193,6 +193,10 @@ body {
     opacity: 1;
     transform: none;
   }
+  /* Stop the logo marquee entirely rather than letting it snap to its end state. */
+  .animate-marquee {
+    animation: none !important;
+  }
 }
 
 /* ---- Services hero (Explore Service) animation keyframes ---- */
