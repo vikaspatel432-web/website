@@ -1,6 +1,7 @@
 import { PageHero, SectionHeading, CTABand } from '../components/ui'
 import Reveal from '../components/Reveal'
 import { PROJECTS } from '../content'
+import useSEO from '../useSEO'
 
 const sectors = [
   'Hospitality & Hotels',
@@ -12,6 +13,12 @@ const sectors = [
 ]
 
 export default function Projects() {
+  useSEO({
+    title: 'Projects — BIM & Reality Capture Case Studies | SP Consultants',
+    description: 'Stadium documentation, hotel scan-to-2D, integrated BIM delivery and 4D/5D programme control — how we turn survey data into build-ready models.',
+    path: '/projects',
+  })
+
   return (
     <>
       <PageHero

@@ -9,8 +9,15 @@ import ToolLogo from '../components/ToolLogo'
 import Icon from '../components/Icon'
 import { SectionHeading, CTABand } from '../components/ui'
 import { SERVICES, STATS, TOOLS, TECH_WE_MASTER } from '../content'
+import useSEO from '../useSEO'
 
 export default function Home() {
+  useSEO({
+    title: 'SP Consultants — BIM Consultancy & AEC Construction Technology',
+    description: 'Multi-discipline BIM modelling, clash detection, 4D/5D simulation, reality capture and live analytics. Transforming visions into reality.',
+    path: '/',
+  })
+
   return (
     <>
       <Hero />

@@ -6,8 +6,15 @@ import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
 import ServicesHero from '../components/ServicesHero'
 import { SERVICES } from '../content'
+import useSEO from '../useSEO'
 
 export default function Services() {
+  useSEO({
+    title: 'Services — BIM, Scan-to-BIM, 4D/5D & Analytics | SP Consultants',
+    description: 'Seven integrated services: BIM consultancy, 2D & 3D layouts, 360° walkthroughs, laser scanning, scan-to-BIM, 4D/5D simulation and construction data analytics.',
+    path: '/services',
+  })
+
   const [active, setActive] = useState(SERVICES[0].id)
 
   useEffect(() => {
