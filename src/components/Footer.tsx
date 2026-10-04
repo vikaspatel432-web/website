@@ -22,6 +22,7 @@ export default function Footer() {
             <h4 className="font-display font-semibold mb-4">Explore</h4>
             <ul className="space-y-2.5 text-muted text-sm">
               <li><Link to="/services" className="hover:text-accent transition-colors">Services</Link></li>
+              <li><Link to="/products" className="hover:text-accent transition-colors">Products</Link></li>
               <li><Link to="/platform" className="hover:text-accent transition-colors">BIM Platform</Link></li>
               <li><Link to="/projects" className="hover:text-accent transition-colors">Projects</Link></li>
               <li><Link to="/about" className="hover:text-accent transition-colors">About</Link></li>

@@ -7,7 +7,7 @@ const logo = '/logo.png'
 
 const links = [
   { to: '/services', label: 'Services' },
-  { to: '/platform', label: 'Platform' },
+  { to: '/products', label: 'Products' },
   { to: '/projects', label: 'Projects' },
   { to: '/about', label: 'About' },
 ]

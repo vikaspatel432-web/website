@@ -8,7 +8,7 @@ import BeforeAfter from '../components/BeforeAfter'
 import ToolLogo from '../components/ToolLogo'
 import Icon from '../components/Icon'
 import { SectionHeading, CTABand } from '../components/ui'
-import { SERVICES, STATS, TOOLS, TECH_WE_MASTER } from '../content'
+import { SERVICES, STATS, TOOLS, TECH_WE_MASTER, DIVISIONS } from '../content'
 import useSEO from '../useSEO'
 
 export default function Home() {
@@ -32,6 +32,65 @@ export default function Home() {
             <ToolLogo key={t.name} name={t.name} file={t.file} />
           ))}
         </Marquee>
+      </section>
+
+      {/* ---------------- Positioning + two divisions ---------------- */}
+      <section className="container-x py-20">
+        <Reveal>
+          <div className="max-w-4xl">
+            <p className="label-mono mb-4">BIM Expertise · Construction Technology · AI-Powered Project Intelligence</p>
+            <h2 className="h-display text-3xl md:text-5xl leading-[1.08]">
+              We don’t just model construction projects.{' '}
+              <span className="text-gradient">We help plan, monitor and deliver them.</span>
+            </h2>
+            <p className="mt-6 text-lg text-muted leading-relaxed max-w-3xl">
+              From BIM coordination to intelligent planning, reality capture and automated
+              engineering workflows, SP Consultants combines construction expertise with
+              technology to improve project delivery.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="grid lg:grid-cols-2 gap-6 mt-12">
+          {DIVISIONS.map((d, i) => (
+            <Reveal key={d.id} delay={i * 110}>
+              <Link
+                to={d.to}
+                viewTransition
+                className="card group relative block h-full overflow-hidden p-8 md:p-10 hover:-translate-y-1.5 hover:border-accent hover:shadow-xl hover:shadow-black/5"
+              >
+                <span
+                  className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"
+                  style={{ background: 'radial-gradient(460px circle at 15% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%)' }}
+                />
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-6">
+                    <div
+                      className="w-12 h-12 rounded-xl grid place-items-center text-accent transition-transform duration-300 group-hover:scale-110"
+                      style={{ background: 'var(--surface-2)' }}
+                    >
+                      <Icon name={d.icon as never} size={24} strokeWidth={1.6} />
+                    </div>
+                    <span className="label-mono opacity-60">{d.eyebrow}</span>
+                  </div>
+                  <h3 className="font-display text-2xl md:text-3xl font-semibold mb-3">{d.title}</h3>
+                  <p className="text-muted leading-relaxed mb-6">{d.text}</p>
+                  <ul className="space-y-2.5 mb-7">
+                    {d.points.map((pt) => (
+                      <li key={pt} className="flex items-start gap-3 text-sm">
+                        <CheckCircle2 size={17} className="text-accent shrink-0 mt-0.5" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="inline-flex items-center gap-2 font-medium text-accent transition-all group-hover:gap-3">
+                    {d.cta} <ArrowRight size={16} />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       {/* ---------------- Stats ---------------- */}

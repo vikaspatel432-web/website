@@ -252,3 +252,175 @@ export const PLATFORM_FEATURES = [
   { icon: 'Link2', title: 'Accessible Anywhere', text: 'Open via a simple link on any device — no complex training.' },
   { icon: 'GitCompareArrows', title: 'Reality vs BIM', text: 'Compare 360° site progress against the model over time.' },
 ]
+
+/* ------------------------------------------------------------------ *
+ * Construction Technology Products
+ * Each product follows Problem → Solution → Business benefit →
+ * Key features → Call to action.
+ * ------------------------------------------------------------------ */
+
+export interface ProductFeature {
+  title: string
+  text: string
+  icon: string
+}
+
+export interface Product {
+  slug: string
+  name: string
+  tagline: string
+  /** The single strongest commercial message for this product. */
+  headline: string
+  /** Short card summary on the overview page. */
+  summary: string
+  icon: string
+  market?: string
+  problem: { title: string; text: string }
+  solution: { title: string; text: string }
+  benefits: string[]
+  features: ProductFeature[]
+  extras?: { title: string; text: string; items: string[] }
+  cta: string
+}
+
+export const PRODUCTS: Product[] = [
+  {
+    slug: 'digital-ops',
+    name: 'Digital Ops',
+    tagline: 'Plan. Coordinate. Track. Deliver.',
+    headline: 'One platform connecting planning, people, progress and project controls.',
+    summary:
+      'An intelligent construction planning and project management platform that connects the programme, the site team and project information in one environment.',
+    icon: 'CalendarClock',
+    problem: {
+      title: 'The programme and the site drift apart',
+      text: 'On most projects the programme lives in one tool, the site team coordinates in messaging apps, and drawings and approvals sit in email. Progress is reported late, in different formats, and by the time the picture is assembled it is already out of date — so decisions get made on information nobody fully trusts.',
+    },
+    solution: {
+      title: 'One connected operating environment',
+      text: 'Digital Ops brings planning, site execution and project information into a single environment. The master programme drives weekly lookaheads, activities are assigned to named people, and site teams update progress from their phones with photographic evidence — so the plan and the site stay in step.',
+    },
+    benefits: [
+      'Delays surface while there is still time to act, not in the monthly report',
+      'One trusted source of progress instead of competing spreadsheets',
+      'Clear accountability — every activity has an owner and an audit trail',
+      'Less administration rebuilding reports from scattered updates',
+      'Site workflows become digital and auditable without bespoke software',
+    ],
+    features: [
+      { title: 'Intelligent Construction Planning', text: 'Desktop-style Gantt planning with online and offline working, synchronisation and full programme control.', icon: 'CalendarClock' },
+      { title: 'Resource Planning & Levelling', text: 'Allocate labour and resources, identify conflicts and optimise workloads before they impact delivery.', icon: 'Users' },
+      { title: 'Lean Planning & Lookaheads', text: 'Convert the master programme into practical weekly and short-term plans the site team can actually work to.', icon: 'GitBranch' },
+      { title: 'Live Site Progress', text: 'Assign activities to responsible users. Site teams update progress through the mobile app with photographic evidence.', icon: 'Smartphone' },
+      { title: 'Task-Based Collaboration', text: 'Discussions, alerts, actions and updates stay linked to the relevant activity rather than buried in emails and messaging apps.', icon: 'MessagesSquare' },
+      { title: 'Document Management', text: 'Centralised file management for drawings, documents and project information.', icon: 'FolderOpen' },
+      { title: 'Template Management', text: 'Digitise almost any site workflow without commissioning a new system each time.', icon: 'Workflow' },
+    ],
+    extras: {
+      title: 'Digitise any site workflow',
+      text: 'Template Management turns the forms and approvals your project already runs on into structured digital workflows.',
+      items: ['Permit to Work', 'Site Audits', 'Inspections', 'Quality Checks', 'Safety Forms', 'Approval Workflows'],
+    },
+    cta: 'See Digital Ops in Action',
+  },
+  {
+    slug: 'reality-capture',
+    name: 'Reality Capture',
+    tagline: 'Walk the Site Without Being on Site.',
+    headline: 'Your construction site. Captured. Searchable. Comparable.',
+    summary:
+      'A navigable digital record of your site, built from regular 360° walks — so anyone can inspect conditions remotely and compare how the project has progressed.',
+    icon: 'ScanEye',
+    problem: {
+      title: 'You cannot be on every site, every week',
+      text: 'Site visits cost days in travel, and the conditions that matter are often covered up before anyone senior sees them. When a dispute arises over what was built and when, teams fall back on memory and a scattered folder of phone photos.',
+    },
+    solution: {
+      title: 'A navigable record of the site, captured on a schedule',
+      text: 'A consultant walks the project periodically with a 360° camera. Once processed, authorised users navigate the site from a laptop as though they were physically walking through it — at any date that was captured.',
+    },
+    benefits: [
+      'Inspect site conditions without the travel time or cost',
+      'A dated visual record that settles progress and quality disputes',
+      'Issues raised against the exact location they were observed',
+      'Safety risks surfaced automatically rather than spotted by chance',
+      'Progress between capture dates measured, not estimated',
+    ],
+    features: [
+      { title: 'Virtual Site Walks', text: 'Inspect project conditions remotely from anywhere, as though walking the site yourself.', icon: 'Camera' },
+      { title: 'Issue Identification & Assignment', text: 'Raise issues directly during the virtual walk and allocate them to the responsible person.', icon: 'ClipboardCheck' },
+      { title: 'Progress Comparison', text: 'Compare site walks from different dates side-by-side to see exactly how construction has moved.', icon: 'GitCompareArrows' },
+      { title: 'AI-Powered Safety Monitoring', text: 'Automatically identify potential PPE non-compliance and visible site safety hazards.', icon: 'ShieldCheck' },
+      { title: 'AI-Powered Progress Intelligence', text: 'Analyse consecutive site walks and automatically identify construction progress between capture dates.', icon: 'Sparkles' },
+    ],
+    cta: 'Explore Reality Capture',
+  },
+  {
+    slug: 'bar-bending-schedule',
+    name: 'Automated Bar Bending Schedule',
+    tagline: 'From Reinforcement Drawings to BBS in Minutes.',
+    headline: 'What traditionally takes days can now be produced in less than 10 minutes.',
+    summary:
+      'Automated BBS generation from reinforcement drawings — cutting days of manual scheduling down to minutes, with a standardised, checkable output.',
+    icon: 'Calculator',
+    market: 'Built for the Indian construction market',
+    problem: {
+      title: 'BBS preparation costs days, and errors cost more',
+      text: 'Preparing a Bar Bending Schedule by hand takes engineers hours or even days, and every revision starts the process again. In the Indian market, where reinforcement quantity, wastage and procurement move the cost needle significantly, slow and inconsistent schedules translate directly into money lost.',
+    },
+    solution: {
+      title: 'Generate the schedule automatically',
+      text: 'Our automated system reads the reinforcement drawings and produces a complete, standardised Bar Bending Schedule — turning a multi-day manual exercise into a task measured in minutes, and making revisions quick to re-run and check.',
+    },
+    benefits: [
+      'Engineering hours returned to engineering, not arithmetic',
+      'Reinforcement quantities available early enough to inform procurement',
+      'A standardised format that is faster to check and approve',
+      'Revisions re-run in minutes instead of restarting the schedule',
+      'Tighter control of reinforcement wastage and cost',
+    ],
+    features: [
+      { title: 'Automated BBS Generation', text: 'Produce a complete schedule directly from the reinforcement drawings.', icon: 'FileSpreadsheet' },
+      { title: 'Faster Quantity Calculations', text: 'Reinforcement quantities calculated automatically, without manual take-off.', icon: 'Calculator' },
+      { title: 'Reduced Manual Effort', text: 'Remove the repetitive calculation work that consumes engineering time.', icon: 'Clock' },
+      { title: 'Standardised Format', text: 'A consistent schedule format across every element and every project.', icon: 'Table2' },
+      { title: 'Faster Checking & Revisions', text: 'Re-run the schedule on a revision and check it in a fraction of the time.', icon: 'Gauge' },
+      { title: 'Procurement Visibility', text: 'Clear reinforcement quantities for procurement planning and cost control.', icon: 'TrendingUp' },
+    ],
+    cta: 'Generate Your BBS Faster',
+  },
+]
+
+/** The two divisions the business is structured around. */
+export const DIVISIONS = [
+  {
+    id: 'services',
+    eyebrow: 'Division 01',
+    title: 'BIM Consultancy Services',
+    text: 'A specialist BIM delivery partner taking projects from fragmented design information to a coordinated, construction-ready model.',
+    points: [
+      'Architectural, Structural and MEP BIM modelling',
+      'Federated BIM models',
+      'Clash detection and coordination',
+      'Constructability reviews',
+      'GFC / construction-ready drawing exports',
+    ],
+    to: '/services',
+    cta: 'Explore Services',
+    icon: 'Boxes',
+  },
+  {
+    id: 'products',
+    eyebrow: 'Division 02',
+    title: 'Construction Technology Products',
+    text: 'Construction technology built around how projects actually operate — planning, site intelligence and automated engineering workflows.',
+    points: [
+      'Digital Ops — planning, progress and project controls',
+      'Reality Capture — 360° virtual site walks with AI insight',
+      'Automated Bar Bending Schedule — BBS in minutes',
+    ],
+    to: '/products',
+    cta: 'Explore Products',
+    icon: 'LayoutDashboard',
+  },
+]
