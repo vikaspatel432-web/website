@@ -10,8 +10,8 @@ import useSEO from '../useSEO'
 
 export default function Services() {
   useSEO({
-    title: 'Services — BIM, Scan-to-BIM, 4D/5D & Analytics | SP Consultants',
-    description: 'Seven integrated services: BIM consultancy, 2D & 3D layouts, 360° walkthroughs, laser scanning, scan-to-BIM, 4D/5D simulation and construction data analytics.',
+    title: 'BIM Consultancy Services — Modelling, Coordination & GFC Delivery | SP Consultants',
+    description: 'A specialist BIM delivery partner: Architectural, Structural and MEP modelling, federated models, clash detection and coordination, constructability reviews and GFC drawing exports.',
     path: '/services',
   })
 
@@ -114,9 +114,14 @@ export default function Services() {
             ))}
 
             <Reveal>
-              <Link to="/platform" className="btn-ghost">
-                See how it all connects on the platform <ArrowRight size={17} />
-              </Link>
+              <div className="flex flex-wrap gap-4">
+                <Link to="/platform" viewTransition className="btn-ghost">
+                  See how it all connects on the platform <ArrowRight size={17} />
+                </Link>
+                <Link to="/products" viewTransition className="btn-ghost">
+                  Explore our construction technology products <ArrowRight size={17} />
+                </Link>
+              </div>
             </Reveal>
           </div>
         </div>
