@@ -18,6 +18,24 @@ export const FOUNDERS = [
     photo: '/team/yogiraj.jpg',
     bio: 'Yogiraj leads strategy and client partnerships at SP Consultants, helping AEC teams adopt BIM as the single source of truth across design, coordination and construction.',
   },
+  {
+    name: 'Pratik Patel',
+    role: 'Co-Founder & Operations Lead',
+    email: 'admin@spconsultants.info',
+    phone: '+91 78743 70533',
+    photo: '/team/pratik.jpg',
+    bio: 'Pratik leads operations at SP Consultants, bringing extensive experience across precast and BIM — connecting what is modelled with how it actually gets built and installed on site.',
+  },
+]
+
+/** Wider delivery team. */
+export const TEAM = [
+  { name: 'Harsh Patel', role: 'Development Lead' },
+  { name: 'Aakash Chauhan', role: 'UI / UX' },
+  { name: 'Niraj Shah', role: 'BIM Manager' },
+  { name: 'Breeze Patel', role: 'MEP Lead' },
+  { name: 'Rutvik Patel', role: 'Laser Scanning Expert' },
+  { name: 'Amish Patel', role: 'Front-end Developer' },
 ]
 
 export interface Service {
@@ -274,6 +292,7 @@ export interface Product {
   /** Short card summary on the overview page. */
   summary: string
   icon: string
+  video?: string
   market?: string
   problem: { title: string; text: string }
   solution: { title: string; text: string }
@@ -286,6 +305,7 @@ export interface Product {
 export const PRODUCTS: Product[] = [
   {
     slug: 'digital-ops',
+    video: '/videos/digital-ops.mp4',
     name: 'Digital Ops',
     tagline: 'Plan. Coordinate. Track. Deliver.',
     headline: 'One platform connecting planning, people, progress and project controls.',
@@ -325,6 +345,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'reality-capture',
+    video: '/videos/reality-capture.mp4',
     name: 'Reality Capture',
     tagline: 'Walk the Site Without Being on Site.',
     headline: 'Your construction site. Captured. Searchable. Comparable.',
@@ -357,6 +378,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'bar-bending-schedule',
+    video: '/videos/bar-bending-schedule.mp4',
     name: 'Automated Bar Bending Schedule',
     tagline: 'From Reinforcement Drawings to BBS in Minutes.',
     headline: 'What traditionally takes days can now be produced in less than 10 minutes.',
@@ -424,3 +446,60 @@ export const DIVISIONS = [
     icon: 'LayoutDashboard',
   },
 ]
+
+/* ------------------------------------------------------------------ *
+ * Joint venture — NirJay Precast Solutions
+ * Service list taken from the NirJay company profile. Copy is a first
+ * pass and should be reviewed by the JV partner before launch.
+ * ------------------------------------------------------------------ */
+export const JOINT_VENTURE = {
+  eyebrow: 'Joint Venture',
+  partner: 'NirJay Precast Solutions',
+  tagline: 'Building the future. Today.',
+  title: 'Precast capability, delivered on the ground.',
+  text: 'Through our joint venture with NirJay Precast Solutions, we extend beyond modelling and planning into precast execution — production labour, reinforcement, installation and the technical support that keeps a precast operation running.',
+  brand: '#00244C',
+  logo: '/logos/nirjay.png',
+  services: [
+    {
+      slug: 'production',
+      title: 'Precast Production Labour',
+      lead: 'Skilled labour. From mould to finish.',
+      text: 'Trained production crews running the casting line end to end, from mould preparation through to cured, finished elements.',
+      steps: ['Mould preparation', 'Casting', 'Finishing', 'Curing'],
+      icon: 'Users',
+      image: '/precast/production-photo.webp',
+      poster: '/precast/production.webp',
+    },
+    {
+      slug: 'reinforcement',
+      title: 'Reinforcement Work',
+      lead: 'Skilled hands. Strong foundations.',
+      text: 'Rebar worked to drawing — cut, bent, assembled into cages and fixed in position ready for casting.',
+      steps: ['Cutting', 'Bending', 'Cage assembly', 'Fixing'],
+      icon: 'GitBranch',
+      image: '/precast/reinforcement-photo.webp',
+      poster: '/precast/reinforcement.webp',
+    },
+    {
+      slug: 'installation',
+      title: 'Installation Services',
+      lead: 'Precision placement. Skilled execution.',
+      text: 'On-site erection crews placing precast elements to line and level, connected and grouted to specification.',
+      steps: ['Erection', 'Alignment', 'Connection', 'Grouting'],
+      icon: 'Boxes',
+      image: '/precast/installation-photo.webp',
+      poster: '/precast/installation.webp',
+    },
+    {
+      slug: 'consultation',
+      title: 'Factory Setup Consultation & Technical Support',
+      lead: 'From planning to production.',
+      text: 'Guidance on planning, setting up and commissioning a precast facility, with technical support once production is running.',
+      steps: ['Planning', 'Setup', 'Commissioning', 'Support'],
+      icon: 'Workflow',
+      image: '/precast/consultation-photo.webp',
+      poster: '/precast/consultation.webp',
+    },
+  ],
+}

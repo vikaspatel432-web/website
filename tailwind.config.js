@@ -6,7 +6,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        display: ['Inter', 'sans-serif'],
+        display: ['Archivo', 'Inter', 'sans-serif'],
         mono: ['Inter', 'sans-serif'],
       },
       colors: {

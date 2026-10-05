@@ -33,8 +33,8 @@ export default function Projects() {
         <div className="grid md:grid-cols-2 gap-6">
           {PROJECTS.map((p, i) => (
             <Reveal key={p.title} delay={(i % 2) * 100}>
-              <Link to={`/projects/${p.slug}`} viewTransition className="card group block overflow-hidden h-full hover:-translate-y-1.5 hover:border-accent transition-all">
-                <div className="relative h-52 border-b border-line overflow-hidden">
+              <Link to={`/projects/${p.slug}`} viewTransition className="panel group block overflow-hidden h-full">
+                <div className="relative h-60 overflow-hidden">
                   <img
                     src={p.image}
                     alt={p.title}
@@ -44,8 +44,8 @@ export default function Projects() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
                   <span className="absolute top-4 left-4 label-mono text-white/90">{p.sector}</span>
                 </div>
-                <div className="p-7">
-                  <h3 className="h-display text-2xl mb-2">{p.title}</h3>
+                <div className="relative z-10 p-7">
+                  <h3 className="display-lg mb-2">{p.title}</h3>
                   <p className="text-sm text-muted leading-relaxed mb-5">{p.text}</p>
                   <div className="flex flex-wrap gap-2">
                     {p.tags.map((t) => (

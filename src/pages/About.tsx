@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Mail, Phone, Target, Users, Eye, Workflow } from 'lucide-react'
 import { PageHero, SectionHeading, CTABand } from '../components/ui'
 import Reveal from '../components/Reveal'
-import { FOUNDERS } from '../content'
+import { FOUNDERS, TEAM } from '../content'
 import useSEO from '../useSEO'
 
 function FounderCard({ f }: { f: (typeof FOUNDERS)[number] }) {
@@ -32,9 +32,11 @@ function FounderCard({ f }: { f: (typeof FOUNDERS)[number] }) {
           <a href={`mailto:${f.email}`} className="flex items-center gap-2 justify-center sm:justify-start text-muted hover:text-accent transition-colors">
             <Mail size={15} /> {f.email}
           </a>
-          <a href={`tel:${f.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 justify-center sm:justify-start text-muted hover:text-accent transition-colors">
-            <Phone size={15} /> {f.phone}
-          </a>
+          {f.phone && (
+            <a href={`tel:${f.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 justify-center sm:justify-start text-muted hover:text-accent transition-colors">
+              <Phone size={15} /> {f.phone}
+            </a>
+          )}
         </div>
       </div>
     </div>
@@ -100,12 +102,42 @@ export default function About() {
 
       <section className="container-x py-24">
         <SectionHeading eyebrow="Leadership" title="The people behind SP Consultants." />
-        <div className="max-w-2xl">
-          {FOUNDERS.map((f) => (
-            <Reveal key={f.name}>
+        <div className="grid md:grid-cols-2 gap-6">
+          {FOUNDERS.map((f, i) => (
+            <Reveal key={f.name} delay={i * 110}>
               <FounderCard f={f} />
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* ---------------- Wider team ---------------- */}
+      <section className="relative overflow-hidden py-24" style={{ background: 'var(--surface)' }}>
+        <div className="absolute inset-0 bp-grid opacity-50" />
+        <div className="aura drift" style={{ width: 460, height: 460, top: '-30%', right: '-6%', opacity: 0.3 }} />
+        <div className="container-x relative">
+          <p className="label-mono mb-4">The team</p>
+          <h2 className="display-lg mb-12 max-w-2xl">Specialists across BIM, MEP, reality capture and software.</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {TEAM.map((m, i) => (
+              <Reveal key={m.name} delay={(i % 3) * 90}>
+                <div className="panel group p-6 h-full">
+                  <div className="relative z-10 flex items-center gap-4">
+                    <div
+                      className="w-11 h-11 shrink-0 rounded-full grid place-items-center text-sm font-semibold text-accent"
+                      style={{ background: 'var(--surface-2)' }}
+                    >
+                      {m.name.split(' ').map((n) => n[0]).join('')}
+                    </div>
+                    <div>
+                      <p className="font-medium leading-tight">{m.name}</p>
+                      <p className="text-sm text-muted">{m.role}</p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

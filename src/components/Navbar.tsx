@@ -8,6 +8,7 @@ const logo = '/logo.png'
 const links = [
   { to: '/services', label: 'Services' },
   { to: '/products', label: 'Products' },
+  { to: '/precast', label: 'Precast' },
   { to: '/projects', label: 'Projects' },
   { to: '/about', label: 'About' },
 ]

@@ -41,7 +41,8 @@ interface El {
   t1: number
 }
 
-export default function BuildingAssembly() {
+export default function BuildingAssembly({ progress }: { progress?: number } = {}) {
+  const scrubbed = progress !== undefined
   const { theme } = useTheme()
   const mountRef = useRef<HTMLDivElement | null>(null)
   const progRef = useRef<HTMLDivElement | null>(null)
@@ -49,7 +50,7 @@ export default function BuildingAssembly() {
 
   const [mode, setMode] = useState<Mode>('shaded')
   const [phase, setPhase] = useState<Phase>('structural')
-  const [playing, setPlaying] = useState(true)
+  const [playing, setPlaying] = useState(progress === undefined)
 
   // Init once
   useEffect(() => {
@@ -61,7 +62,8 @@ export default function BuildingAssembly() {
 
   useEffect(() => { engine.current?.applyTheme(theme) }, [theme])
   useEffect(() => { engine.current?.applyMode(mode) }, [mode])
-  useEffect(() => { engine.current?.setPlaying(playing) }, [playing])
+  useEffect(() => { engine.current?.setPlaying(scrubbed ? false : playing) }, [playing, scrubbed])
+  useEffect(() => { if (progress !== undefined) engine.current?.setProgress(progress) }, [progress])
 
   const info = PHASE[phase]
 
@@ -119,13 +121,15 @@ export default function BuildingAssembly() {
               <div className="flex gap-0.5 p-1.5 rounded-xl glass shadow-lg shadow-black/5">
                 {segBtn('pen', 'Pen')}{segBtn('shaded', 'Shaded')}{segBtn('solid', 'Solid')}
               </div>
-              <button
-                onClick={() => setPlaying((v) => !v)}
-                className="w-10 h-10 grid place-items-center rounded-xl glass shadow-lg shadow-black/5 text-ink"
-                aria-label={playing ? 'Pause' : 'Play'}
-              >
-                {playing ? <Pause size={15} /> : <Play size={15} />}
-              </button>
+              {!scrubbed && (
+                <button
+                  onClick={() => setPlaying((v) => !v)}
+                  className="w-10 h-10 grid place-items-center rounded-xl glass shadow-lg shadow-black/5 text-ink"
+                  aria-label={playing ? 'Pause' : 'Play'}
+                >
+                  {playing ? <Pause size={15} /> : <Play size={15} />}
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -360,6 +364,7 @@ function createEngine(
     applyMode,
     applyTheme,
     setPlaying: (p: boolean) => { playing = p },
+    setProgress: (g: number) => { elapsed = clamp01(g) * total },
     jump: (key: Phase) => { elapsed = total * PHASE[key].start + 0.002; lastPhase = key },
     dispose() {
       cancelAnimationFrame(raf)

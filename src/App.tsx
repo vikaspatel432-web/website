@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Services from './pages/Services'
 import Platform from './pages/Platform'
 import Products from './pages/Products'
+import Precast from './pages/Precast'
 import ProductDetail from './pages/ProductDetail'
 import Projects from './pages/Projects'
 import ProjectDetail from './pages/ProjectDetail'
@@ -52,6 +53,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/platform" element={<Platform />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/precast" element={<Precast />} />
           <Route path="/products/:slug" element={<ProductDetail />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
