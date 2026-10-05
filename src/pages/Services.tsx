@@ -46,7 +46,7 @@ export default function Services() {
       <section className="container-x pt-16 pb-4">
         <Reveal>
           <p className="label-mono mb-3">Services</p>
-          <h1 className="h-display text-3xl md:text-5xl max-w-3xl">
+          <h1 className="display-xl max-w-3xl">
             An integrated AEC technology stack.
           </h1>
           <p className="mt-5 text-muted text-lg max-w-2xl leading-relaxed">
@@ -91,7 +91,7 @@ export default function Services() {
                     </div>
                     <div>
                       <span className="label-mono opacity-60">{s.num} / 07</span>
-                      <h2 className="h-display text-2xl md:text-3xl">{s.title}</h2>
+                      <h2 className="display-lg">{s.title}</h2>
                     </div>
                   </div>
                 </Reveal>
@@ -103,7 +103,7 @@ export default function Services() {
                     {s.points.map((p) => (
                       <div
                         key={p}
-                        className="card flex items-center gap-3 px-4 py-3.5 text-sm hover:border-accent transition-colors"
+                        className="panel flex items-center gap-3 px-4 py-3.5 text-sm"
                       >
                         <Check size={18} className="text-accent shrink-0" />
                         {p}

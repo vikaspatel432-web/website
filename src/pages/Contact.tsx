@@ -50,7 +50,7 @@ export default function Contact() {
           {/* Details */}
           <div className="space-y-6">
             <Reveal>
-              <div className="card p-7">
+              <div className="panel p-7"><div className="relative z-10">
                 <h3 className="font-display text-lg font-semibold mb-5">Get in touch</h3>
                 <ul className="space-y-4 text-sm">
                   <li className="flex items-center gap-3">
@@ -72,11 +72,12 @@ export default function Contact() {
                     <span className="text-muted">Serving projects across India &amp; abroad</span>
                   </li>
                 </ul>
+                </div>
               </div>
             </Reveal>
 
             <Reveal delay={100}>
-              <div className="card p-7">
+              <div className="panel p-7"><div className="relative z-10">
                 <h3 className="font-display text-lg font-semibold mb-4">Speak to a founder</h3>
                 <div className="space-y-4">
                   {FOUNDERS.map((f) => (
@@ -87,19 +88,20 @@ export default function Contact() {
                     </div>
                   ))}
                 </div>
+                </div>
               </div>
             </Reveal>
           </div>
 
           {/* Form */}
           <Reveal delay={120}>
-            <div className="card p-7 md:p-9">
+            <div className="panel p-7 md:p-9"><div className="relative z-10">
               {status === 'sent' ? (
                 <div className="h-full flex flex-col justify-center text-center py-12">
                   <div className="w-14 h-14 rounded-full grid place-items-center text-accent mx-auto mb-5" style={{ background: 'var(--surface-2)' }}>
                     <Send size={24} />
                   </div>
-                  <h3 className="h-display text-2xl mb-2">Thank you</h3>
+                  <h3 className="display-lg mb-2">Thank you</h3>
                   <p className="text-muted">Your message has been sent — we’ll be in touch shortly.</p>
                 </div>
               ) : (
@@ -145,6 +147,7 @@ export default function Contact() {
                   )}
                 </form>
               )}
+              </div>
             </div>
           </Reveal>
         </div>
