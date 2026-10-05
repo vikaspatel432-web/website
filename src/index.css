@@ -16,15 +16,15 @@
 }
 
 html.dark {
-  --bg: #0a1622;
-  --surface: #0f2030;
-  --surface-2: #15293b;
-  --line: rgba(255, 255, 255, 0.1);
-  --ink: #eef4f8;
-  --muted: #9fb2c0;
-  --accent: #3ea0c9;
-  --accent-soft: #4fb0d8;
-  --grid: rgba(120, 180, 210, 0.08);
+  --bg: #060d15;
+  --surface: #0c1825;
+  --surface-2: #122334;
+  --line: rgba(255, 255, 255, 0.09);
+  --ink: #eaf2f8;
+  --muted: #8ea6b8;
+  --accent: #4fb0d8;
+  --accent-soft: #74c8ea;
+  --grid: rgba(120, 180, 210, 0.07);
 }
 
 html {
@@ -173,9 +173,9 @@ body {
   /* Reveal-on-scroll */
   .reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(46px) scale(0.985);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
   }
   .reveal.in {
@@ -234,4 +234,78 @@ body {
 @keyframes sp-rise {
   0% { opacity: 0; transform: translateY(16px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ------------------------------------------------------------------ *
+ * Showcase layer — the dark, high-drama language used across the site
+ * ------------------------------------------------------------------ */
+@layer components {
+  /* Oversized display type */
+  .display-xl {
+    font-size: clamp(2.7rem, 6.4vw, 5.6rem);
+    line-height: 1.015;
+    letter-spacing: -0.045em;
+    font-weight: 400;
+  }
+  .display-lg {
+    font-size: clamp(2rem, 4.2vw, 3.6rem);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    font-weight: 400;
+  }
+  /* A soft accent light source behind a section */
+  .aura {
+    position: absolute;
+    border-radius: 9999px;
+    pointer-events: none;
+    filter: blur(90px);
+    opacity: 0.5;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  }
+  /* Panel that lifts and lights up on hover */
+  .panel {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--surface) 0%, var(--bg) 100%);
+    border: 1px solid var(--line);
+    @apply rounded-3xl transition-all duration-500;
+  }
+  .panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: radial-gradient(520px circle at var(--px, 30%) var(--py, 0%),
+      color-mix(in srgb, var(--accent) 16%, transparent), transparent 65%);
+  }
+  .panel:hover::after { opacity: 1; }
+  .panel:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+    transform: translateY(-5px);
+  }
+  /* Hairline rule that fades out */
+  .rule {
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0.45;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 44px color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+  /* Slow drift for ambient light sources */
+  .drift { animation: drift 16s ease-in-out infinite alternate; }
+}
+
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(4%, -6%, 0) scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift { animation: none !important; }
 }

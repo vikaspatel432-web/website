@@ -81,19 +81,35 @@ export function CTABand({
   subtitle?: string
 }) {
   return (
-    <section className="container-x py-24">
+    <section className="container-x py-24 md:py-32">
       <Reveal>
-        <div className="relative overflow-hidden rounded-3xl px-8 md:px-16 py-16 md:py-20 text-center"
-          style={{ background: 'linear-gradient(135deg, var(--accent), var(--ink))' }}>
-          <div className="absolute inset-0 bp-grid opacity-20" />
+        <div
+          className="relative overflow-hidden rounded-3xl px-8 md:px-16 py-20 md:py-28 text-center border"
+          style={{
+            borderColor: 'var(--line)',
+            background: 'linear-gradient(160deg, var(--surface) 0%, var(--bg) 70%)',
+          }}
+        >
+          <div className="absolute inset-0 bp-grid opacity-40" />
+          <div className="aura drift" style={{ width: 520, height: 520, top: '-45%', left: '50%', transform: 'translateX(-50%)' }} />
           <div className="relative">
-            <h2 className="h-display text-3xl md:text-5xl text-white max-w-3xl mx-auto">{title}</h2>
-            <p className="mt-5 text-white/80 max-w-xl mx-auto leading-relaxed">{subtitle}</p>
-            <div className="mt-8 flex flex-wrap gap-4 justify-center">
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-white text-navy px-8 py-3 font-medium transition-transform hover:-translate-y-0.5">
+            <h2 className="display-lg max-w-3xl mx-auto">{title}</h2>
+            <p className="mt-6 text-muted max-w-xl mx-auto leading-relaxed">{subtitle}</p>
+            <div className="mt-10 flex flex-wrap gap-4 justify-center">
+              <Link
+                to="/contact"
+                viewTransition
+                className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 font-medium text-white transition-transform hover:-translate-y-0.5"
+                style={{ background: 'var(--accent)' }}
+              >
                 Get in Touch <ArrowRight size={18} />
               </Link>
-              <Link to="/projects" className="inline-flex items-center gap-2 rounded-full border border-white/40 text-white px-8 py-3 font-medium transition-colors hover:bg-white/10">
+              <Link
+                to="/projects"
+                viewTransition
+                className="inline-flex items-center gap-2 rounded-full border px-8 py-3.5 font-medium transition-colors hover:text-accent"
+                style={{ borderColor: 'var(--line)' }}
+              >
                 See Our Work
               </Link>
             </div>
