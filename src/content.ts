@@ -18,6 +18,24 @@ export const FOUNDERS = [
     photo: '/team/yogiraj.jpg',
     bio: 'Yogiraj leads strategy and client partnerships at SP Consultants, helping AEC teams adopt BIM as the single source of truth across design, coordination and construction.',
   },
+  {
+    name: 'Pratik Patel',
+    role: 'Co-Founder & Operations Lead',
+    email: 'admin@spconsultants.info',
+    phone: '',
+    photo: '/team/pratik.jpg',
+    bio: 'Pratik leads operations at SP Consultants, bringing extensive experience across precast and BIM — connecting what is modelled with how it actually gets built and installed on site.',
+  },
+]
+
+/** Wider delivery team. */
+export const TEAM = [
+  { name: 'Harsh Patel', role: 'Development Lead' },
+  { name: 'Aakash Chauhan', role: 'UI / UX' },
+  { name: 'Niraj Shah', role: 'BIM Manager' },
+  { name: 'Breeze Patel', role: 'MEP Lead' },
+  { name: 'Rutvik Patel', role: 'Laser Scanning Expert' },
+  { name: 'Amish Patel', role: 'Front-end Developer' },
 ]
 
 export interface Service {

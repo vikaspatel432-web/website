@@ -36,7 +36,7 @@ export default function ProductVideo({
   return (
     <div
       className="relative overflow-hidden rounded-3xl border"
-      style={{ borderColor: 'var(--line)', background: 'var(--surface)', aspectRatio: '16 / 10' }}
+      style={{ borderColor: 'var(--line)', background: 'var(--surface)', aspectRatio: '16 / 9' }}
     >
       {failed ? (
         <div className="absolute inset-0 grid place-items-center bp-grid">
