@@ -22,7 +22,7 @@ export const FOUNDERS = [
     name: 'Pratik Patel',
     role: 'Co-Founder & Operations Lead',
     email: 'admin@spconsultants.info',
-    phone: '',
+    phone: '+91 78743 70533',
     photo: '/team/pratik.jpg',
     bio: 'Pratik leads operations at SP Consultants, bringing extensive experience across precast and BIM — connecting what is modelled with how it actually gets built and installed on site.',
   },
