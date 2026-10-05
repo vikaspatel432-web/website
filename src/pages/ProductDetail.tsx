@@ -43,8 +43,8 @@ export default function ProductDetail() {
             )}
           </div>
 
-          <h1 className="h-display text-4xl md:text-6xl mb-4">{product.name}</h1>
-          <p className="text-xl md:text-2xl text-accent font-medium mb-7">{product.tagline}</p>
+          <h1 className="display-xl mb-4">{product.name}</h1>
+          <p className="text-lg md:text-xl text-accent font-medium mb-6">{product.tagline}</p>
           <p className="text-lg md:text-xl leading-relaxed max-w-3xl font-medium">{product.headline}</p>
 
           {product.video && (
@@ -76,7 +76,7 @@ export default function ProductDetail() {
               <p className="label-mono mb-4 inline-flex items-center gap-2">
                 <AlertCircle size={14} /> The problem
               </p>
-              <h2 className="font-display text-2xl font-semibold mb-4">{product.problem.title}</h2>
+              <h2 className="display-lg mb-4">{product.problem.title}</h2>
               <p className="text-muted leading-relaxed">{product.problem.text}</p>
             </div>
           </Reveal>
@@ -85,7 +85,7 @@ export default function ProductDetail() {
               <p className="label-mono mb-4 inline-flex items-center gap-2">
                 <Lightbulb size={14} /> The solution
               </p>
-              <h2 className="font-display text-2xl font-semibold mb-4">{product.solution.title}</h2>
+              <h2 className="display-lg mb-4">{product.solution.title}</h2>
               <p className="text-muted leading-relaxed">{product.solution.text}</p>
             </div>
           </Reveal>
@@ -97,7 +97,7 @@ export default function ProductDetail() {
         <div className="container-x">
           <Reveal>
             <p className="label-mono mb-3">What it changes</p>
-            <h2 className="h-display text-3xl md:text-4xl mb-10 max-w-3xl">
+            <h2 className="display-lg mb-10 max-w-3xl">
               The business outcome, not the feature list.
             </h2>
           </Reveal>
@@ -118,12 +118,12 @@ export default function ProductDetail() {
       <section className="container-x py-20">
         <Reveal>
           <p className="label-mono mb-3">Key capabilities</p>
-          <h2 className="h-display text-3xl md:text-4xl mb-10">How it works in practice.</h2>
+          <h2 className="display-lg mb-10">How it works in practice.</h2>
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {product.features.map((f, i) => (
             <Reveal key={f.title} delay={(i % 3) * 80}>
-              <div className="card group p-7 h-full hover:-translate-y-1 hover:border-accent">
+              <div className="panel group p-7 h-full"><div className="relative z-10">
                 <div
                   className="w-12 h-12 rounded-xl grid place-items-center text-accent mb-5 transition-transform duration-300 group-hover:scale-110"
                   style={{ background: 'var(--surface-2)' }}
@@ -132,6 +132,7 @@ export default function ProductDetail() {
                 </div>
                 <h3 className="font-display text-lg font-semibold mb-2">{f.title}</h3>
                 <p className="text-sm text-muted leading-relaxed">{f.text}</p>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -162,7 +163,7 @@ export default function ProductDetail() {
       {/* ---- CTA ---- */}
       <section className="container-x pb-20">
         <div className="rounded-2xl p-10 md:p-14 text-center" style={{ background: 'var(--surface)' }}>
-          <h2 className="h-display text-3xl md:text-4xl mb-4">{product.cta}</h2>
+          <h2 className="display-lg mb-4">{product.cta}</h2>
           <p className="text-muted max-w-xl mx-auto mb-8">
             Tell us about your project and we’ll show you {product.name} working on the kind of work you actually do.
           </p>
