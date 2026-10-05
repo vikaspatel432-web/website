@@ -2,6 +2,7 @@ import { Link, useParams, Navigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Check, AlertCircle, Lightbulb } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
+import ProductVideo from '../components/ProductVideo'
 import { PRODUCTS } from '../content'
 import useSEO from '../useSEO'
 
@@ -45,6 +46,12 @@ export default function ProductDetail() {
           <h1 className="h-display text-4xl md:text-6xl mb-4">{product.name}</h1>
           <p className="text-xl md:text-2xl text-accent font-medium mb-7">{product.tagline}</p>
           <p className="text-lg md:text-xl leading-relaxed max-w-3xl font-medium">{product.headline}</p>
+
+          {product.video && (
+            <div className="mt-12 max-w-4xl">
+              <ProductVideo src={product.video} label={`${product.name} — product walkthrough`} />
+            </div>
+          )}
 
           <div className="flex flex-wrap gap-4 mt-9">
             <Link to="/contact" viewTransition className="btn-primary">

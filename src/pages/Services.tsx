@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Check } from 'lucide-react'
 import { CTABand } from '../components/ui'
 import Reveal from '../components/Reveal'
+import JointVenture from '../components/JointVenture'
 import Icon from '../components/Icon'
 import ServicesHero from '../components/ServicesHero'
 import { SERVICES } from '../content'
@@ -126,6 +127,8 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      <JointVenture />
 
       <CTABand
         title="Not sure where to start?"

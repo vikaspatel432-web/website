@@ -274,6 +274,7 @@ export interface Product {
   /** Short card summary on the overview page. */
   summary: string
   icon: string
+  video?: string
   market?: string
   problem: { title: string; text: string }
   solution: { title: string; text: string }
@@ -286,6 +287,7 @@ export interface Product {
 export const PRODUCTS: Product[] = [
   {
     slug: 'digital-ops',
+    video: '/videos/digital-ops.mp4',
     name: 'Digital Ops',
     tagline: 'Plan. Coordinate. Track. Deliver.',
     headline: 'One platform connecting planning, people, progress and project controls.',
@@ -325,6 +327,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'reality-capture',
+    video: '/videos/reality-capture.mp4',
     name: 'Reality Capture',
     tagline: 'Walk the Site Without Being on Site.',
     headline: 'Your construction site. Captured. Searchable. Comparable.',
@@ -357,6 +360,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'bar-bending-schedule',
+    video: '/videos/bar-bending-schedule.mp4',
     name: 'Automated Bar Bending Schedule',
     tagline: 'From Reinforcement Drawings to BBS in Minutes.',
     headline: 'What traditionally takes days can now be produced in less than 10 minutes.',
@@ -424,3 +428,24 @@ export const DIVISIONS = [
     icon: 'LayoutDashboard',
   },
 ]
+
+/* ------------------------------------------------------------------ *
+ * Joint venture — NirJay Precast Solutions
+ * Service list taken from the NirJay company profile. Copy is a first
+ * pass and should be reviewed by the JV partner before launch.
+ * ------------------------------------------------------------------ */
+export const JOINT_VENTURE = {
+  eyebrow: 'Joint Venture',
+  partner: 'NirJay Precast Solutions',
+  title: 'Precast capability, delivered on the ground.',
+  text: 'Through our joint venture with NirJay Precast Solutions, we extend beyond modelling and planning into precast execution — production labour, reinforcement, installation and the technical support that keeps a precast operation running.',
+  brand: '#00244C',
+  logo: '/logos/nirjay.png',
+  services: [
+    { title: 'Precast Production Labour', text: 'Skilled production crews for precast casting and factory lines.', icon: 'Users' },
+    { title: 'Reinforcement Work', text: 'Rebar cutting, bending, cage assembly and placement for precast elements.', icon: 'GitBranch' },
+    { title: 'Installation Services', text: 'On-site handling, erection and installation of precast elements.', icon: 'Boxes' },
+    { title: 'Factory Setup Consultation', text: 'Guidance on planning, setting up and commissioning a precast production facility.', icon: 'Workflow' },
+    { title: 'Technical Support', text: 'Ongoing technical assistance across production and installation.', icon: 'ShieldCheck' },
+  ],
+}
