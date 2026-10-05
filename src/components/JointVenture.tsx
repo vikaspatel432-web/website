@@ -10,7 +10,7 @@ export default function JointVenture() {
   const [logoOk, setLogoOk] = useState(true)
 
   return (
-    <section className="relative overflow-hidden py-24 md:py-32" style={{ background: JV.brand }}>
+    <section className="relative overflow-hidden py-18 md:py-24" style={{ background: JV.brand }}>
       <div className="absolute inset-0 bp-grid opacity-[0.12]" />
       <div
         className="aura drift"
@@ -46,7 +46,7 @@ export default function JointVenture() {
                 className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 font-medium transition-transform hover:-translate-y-0.5"
                 style={{ color: JV.brand }}
               >
-                Talk to us about precast <ArrowRight size={17} />
+                Explore NirJay Precast <ArrowRight size={17} />
               </Link>
             </div>
           </Reveal>
@@ -61,7 +61,7 @@ export default function JointVenture() {
                   </div>
                   <div>
                     <h3 className="font-medium text-white mb-1">{s.title}</h3>
-                    <p className="text-sm text-white/60 leading-relaxed">{s.text}</p>
+                    <p className="text-sm text-white/60 leading-relaxed">{s.lead}</p>
                   </div>
                   <span className="ml-auto text-xs font-medium text-white/25 tabular-nums pt-1">
                     {String(i + 1).padStart(2, '0')}

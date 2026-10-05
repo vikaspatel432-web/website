@@ -32,7 +32,7 @@ export default function Home() {
       <Hero />
 
       {/* ============ Positioning statement ============ */}
-      <section className="relative overflow-hidden py-28 md:py-40">
+      <section className="relative overflow-hidden py-20 md:py-28">
         <div className="aura drift" style={{ width: 640, height: 640, top: '-22%', left: '52%' }} />
         <div className="container-x relative">
           <Reveal>
@@ -68,7 +68,7 @@ export default function Home() {
       </section>
 
       {/* ============ Two divisions ============ */}
-      <section className="container-x pb-28 md:pb-36">
+      <section className="container-x pb-20 md:pb-24">
         <div className="grid lg:grid-cols-2 gap-6">
           {DIVISIONS.map((d, i) => (
             <Reveal key={d.id} delay={i * 120}>
@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* ============ Scan to BIM ============ */}
-      <section className="relative overflow-hidden py-28 md:py-36">
+      <section className="relative overflow-hidden py-20 md:py-24">
         <div className="aura drift" style={{ width: 560, height: 560, top: '10%', right: '-14%', opacity: 0.32 }} />
         <div className="container-x relative grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-center">
           <Reveal>
@@ -182,7 +182,7 @@ export default function Home() {
       <ScrollSequence />
 
       {/* ============ Services ============ */}
-      <section className="relative overflow-hidden py-28 md:py-36">
+      <section className="relative overflow-hidden py-20 md:py-24">
         <div className="container-x relative">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6 mb-14">

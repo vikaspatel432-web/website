@@ -81,7 +81,7 @@ export function CTABand({
   subtitle?: string
 }) {
   return (
-    <section className="container-x py-24 md:py-32">
+    <section className="container-x py-18 md:py-24">
       <Reveal>
         <div
           className="relative overflow-hidden rounded-3xl px-8 md:px-16 py-20 md:py-28 text-center border"
