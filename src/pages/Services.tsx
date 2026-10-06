@@ -6,6 +6,7 @@ import Reveal from '../components/Reveal'
 import JointVenture from '../components/JointVenture'
 import Icon from '../components/Icon'
 import ServicesHero from '../components/ServicesHero'
+import ProductVideo from '../components/ProductVideo'
 import { SERVICES } from '../content'
 import useSEO from '../useSEO'
 
@@ -54,6 +55,26 @@ export default function Services() {
             entry point that fits your project, or combine them end to end.
           </p>
         </Reveal>
+      </section>
+
+      {/* One coordinated model — the BIM consultancy story in motion */}
+      <section className="container-x pt-10 pb-4">
+        <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 items-center">
+          <Reveal>
+            <div>
+              <p className="label-mono mb-4">Division 01 — BIM Consultancy</p>
+              <h2 className="display-lg mb-5">One coordinated model. Constructible and ready.</h2>
+              <p className="text-muted leading-relaxed">
+                Architecture, structure and MEP modelled together, clashed out and issued as
+                construction-ready information — so the model the site works from is the one
+                everyone agreed.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={130}>
+            <ProductVideo src="/videos/bim-coordination.mp4" label="Coordinated BIM model walkthrough" />
+          </Reveal>
+        </div>
       </section>
 
       <section className="container-x py-16">

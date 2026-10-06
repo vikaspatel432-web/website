@@ -6,7 +6,7 @@ export const COMPANY = {
   tagline: 'Transforming Visions Into Reality',
   site: 'www.spconsultants.info',
   email: 'admin@spconsultants.info',
-  phones: ['+91 94285 10353'],
+  phones: ['+91 94285 10353', '+91 88492 83976'],
 }
 
 export const FOUNDERS = [
@@ -31,11 +31,12 @@ export const FOUNDERS = [
 /** Wider delivery team. */
 export const TEAM = [
   { name: 'Harsh Patel', role: 'Development Lead' },
-  { name: 'Aakash Chauhan', role: 'UI / UX' },
+  { name: 'Aakash Chauhan', role: 'Backend Engineer' },
   { name: 'Niraj Shah', role: 'BIM Manager' },
-  { name: 'Breeze Patel', role: 'MEP Lead' },
+  { name: 'Breeze Sheth', role: 'MEP Lead' },
   { name: 'Rutvik Patel', role: 'Laser Scanning Expert' },
   { name: 'Amish Patel', role: 'Front-end Developer' },
+  { name: 'Kalpana Shah', role: 'BIM Coordinator' },
 ]
 
 export interface Service {
@@ -293,6 +294,8 @@ export interface Product {
   summary: string
   icon: string
   video?: string
+  /** Portrait walkthrough, shown in a device frame. */
+  videoVertical?: string
   market?: string
   problem: { title: string; text: string }
   solution: { title: string; text: string }
@@ -305,7 +308,6 @@ export interface Product {
 export const PRODUCTS: Product[] = [
   {
     slug: 'digital-ops',
-    video: '/videos/digital-ops.mp4',
     name: 'Digital Ops',
     tagline: 'Plan. Coordinate. Track. Deliver.',
     headline: 'One platform connecting planning, people, progress and project controls.',
@@ -346,6 +348,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: 'reality-capture',
     video: '/videos/reality-capture.mp4',
+    videoVertical: '/videos/reality-capture-full.mp4',
     name: 'Reality Capture',
     tagline: 'Walk the Site Without Being on Site.',
     headline: 'Your construction site. Captured. Searchable. Comparable.',
