@@ -10,10 +10,12 @@ export default function ProductVideo({
   src,
   poster,
   label,
+  portrait = false,
 }: {
   src: string
   poster?: string
   label: string
+  portrait?: boolean
 }) {
   const ref = useRef<HTMLVideoElement | null>(null)
   const [failed, setFailed] = useState(false)
@@ -36,7 +38,7 @@ export default function ProductVideo({
   return (
     <div
       className="relative overflow-hidden rounded-3xl border"
-      style={{ borderColor: 'var(--line)', background: 'var(--surface)', aspectRatio: '16 / 9' }}
+      style={{ borderColor: 'var(--line)', background: 'var(--surface)', aspectRatio: portrait ? '9 / 16' : '16 / 9' }}
     >
       {failed ? (
         <div className="absolute inset-0 grid place-items-center bp-grid">

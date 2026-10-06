@@ -160,6 +160,31 @@ export default function ProductDetail() {
         )}
       </section>
 
+      {/* ---- Full walkthrough (portrait clip) ---- */}
+      {product.videoVertical && (
+        <section className="relative overflow-hidden py-16 md:py-20" style={{ background: 'var(--surface)' }}>
+          <div className="absolute inset-0 bp-grid opacity-50" />
+          <div className="aura drift" style={{ width: 460, height: 460, top: '-25%', left: '-8%', opacity: 0.3 }} />
+          <div className="container-x relative grid lg:grid-cols-[1fr_0.6fr] gap-12 items-center">
+            <Reveal>
+              <div>
+                <p className="label-mono mb-3">Full walkthrough</p>
+                <h2 className="display-lg mb-5">See it the way your team will.</h2>
+                <p className="text-muted leading-relaxed max-w-lg">
+                  Capture the site, walk it from anywhere, and raise an issue against the exact
+                  spot you saw it — start to finish.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="mx-auto w-full max-w-[280px]">
+                <ProductVideo src={product.videoVertical} label={`${product.name} full walkthrough`} portrait />
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       {/* ---- CTA ---- */}
       <section className="container-x pb-20">
         <div className="rounded-2xl p-10 md:p-14 text-center" style={{ background: 'var(--surface)' }}>
